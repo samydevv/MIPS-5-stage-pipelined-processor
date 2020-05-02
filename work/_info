@@ -9,16 +9,16 @@ Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z4 dD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor
-Z5 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DataMemory.vhd
-Z6 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DataMemory.vhd
+Z5 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd
+Z6 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd
 l0
 L5
 VF]j8ohlJW2_;cD[9j@9Xa1
 Z7 OV;C;10.1d;51
 32
-Z8 !s108 1588314504.016000
-Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DataMemory.vhd|
-Z10 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DataMemory.vhd|
+Z8 !s108 1588372556.549000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd|
+Z10 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd|
 Z11 o-work work -2002 -explicit -O0
 Z12 tExplicit 1
 !s100 4J=<9_8jA4X;0ITaGBXJX2
@@ -45,16 +45,16 @@ Z13 w1588286920
 R2
 R3
 R4
-Z14 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DecoderRegisterFile.vhd
-Z15 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DecoderRegisterFile.vhd
+Z14 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd
+Z15 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd
 l0
 L4
 Vf7D3<]Z=Kl9jd[[GB7dCm2
 R7
 32
-Z16 !s108 1588314504.855000
-Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DecoderRegisterFile.vhd|
-Z18 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\DecoderRegisterFile.vhd|
+Z16 !s108 1588372557.446000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd|
+Z18 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd|
 R11
 R12
 !s100 `bc:8[8jNee3=QFCmLX:`2
@@ -76,21 +76,21 @@ R12
 !s100 DGkfN7zAmR<NRKo]Zg>SF1
 !i10b 1
 Einstructionmemory
-Z19 w1588140717
+Z19 w1588371947
 R1
 R2
 R3
 R4
-Z20 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\InstructionMemory.vhd
-Z21 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\InstructionMemory.vhd
+Z20 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd
+Z21 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd
 l0
 L5
 Vc8^Dld8H`Q6EZMVJTP^h;2
 R7
 32
-Z22 !s108 1588314503.595000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\InstructionMemory.vhd|
-Z24 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\InstructionMemory.vhd|
+Z22 !s108 1588372556.179000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd|
+Z24 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd|
 R11
 R12
 !s100 1KS2eXAoz<De8lCAgCP2`2
@@ -102,7 +102,7 @@ R3
 DEx4 work 17 instructionmemory 0 22 c8^Dld8H`Q6EZMVJTP^h;2
 l16
 L12
-VLi:czY>>O]YGoKJ7:HPh72
+VzYPeU=l0fS0S9nm]ZhXYj2
 R7
 32
 R22
@@ -110,23 +110,23 @@ R23
 R24
 R11
 R12
-!s100 EOP0OXG<PVUe@H]80IIke2
+!s100 l`@BXO<WFh;_@c@7c@mN11
 !i10b 1
 Emux2_1
 Z25 w1588310813
 R2
 R3
 R4
-Z26 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile2to1.vhd
-Z27 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile2to1.vhd
+Z26 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd
+Z27 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd
 l0
 L4
 Ve8ofg:X4OMZ=WC28ACT@?2
 R7
 32
-Z28 !s108 1588314505.296000
-Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile2to1.vhd|
-Z30 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile2to1.vhd|
+Z28 !s108 1588372557.701000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd|
+Z30 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd|
 R11
 R12
 !s100 7;7ilg[<li]_2dE]nZ^5Y0
@@ -152,51 +152,51 @@ Z31 w1588310749
 R2
 R3
 R4
-Z32 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile8to1.vhd
-Z33 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile8to1.vhd
+Z32 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd
+Z33 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd
 l0
 L4
 VjFXd64GoffA>Od8C5gSB@2
-!s100 7P[dW9:7::NMhP^gB[Z953
 R7
 32
-!i10b 1
-Z34 !s108 1588314505.814000
-Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile8to1.vhd|
-Z36 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\MultiplexerRegisterFile8to1.vhd|
+Z34 !s108 1588372558.232000
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd|
+Z36 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd|
 R11
 R12
+!s100 7P[dW9:7::NMhP^gB[Z953
+!i10b 1
 Aarch_mux8_1
 R2
 R3
-Z37 DEx4 work 6 mux8_1 0 22 jFXd64GoffA>Od8C5gSB@2
+DEx4 work 6 mux8_1 0 22 jFXd64GoffA>Od8C5gSB@2
 l12
 L11
-Z38 Vgh76[=YUgefn5[d4DOP2I0
-Z39 !s100 [bcX_QNkbi@IL7?>08:P91
+Vgh76[=YUgefn5[d4DOP2I0
 R7
 32
-!i10b 1
 R34
 R35
 R36
 R11
 R12
+!s100 [bcX_QNkbi@IL7?>08:P91
+!i10b 1
 Eor_2
-Z40 w1588306057
+Z37 w1588306057
 R2
 R3
 R4
-Z41 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\OrRegisterFile.vhd
-Z42 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\OrRegisterFile.vhd
+Z38 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd
+Z39 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd
 l0
 L4
 VT2j]AcZoconT=;BL;SkgY2
 R7
 32
-Z43 !s108 1588314505.549000
-Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\OrRegisterFile.vhd|
-Z45 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\OrRegisterFile.vhd|
+Z40 !s108 1588372557.984000
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd|
+Z42 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd|
 R11
 R12
 !s100 ZG_3QDbKPUn33AjdIJY>J0
@@ -208,30 +208,65 @@ DEx4 work 4 or_2 0 22 T2j]AcZoconT=;BL;SkgY2
 l11
 L10
 VVMUbT][L0o1c>bbX;4C^>1
-!s100 KERf20J81ObKVTkiN@JWb1
 R7
 32
-R43
-R44
-R45
+R40
+R41
+R42
 R11
 R12
+!s100 KERf20J81ObKVTkiN@JWb1
 !i10b 1
-Eregisterfile
-Z46 w1588314487
+Epc
+Z43 w1588382412
 R2
 R3
 R4
-Z47 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Registerfile.vhd
-Z48 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Registerfile.vhd
+Z44 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\PC_Register.vhd
+Z45 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\PC_Register.vhd
+l0
+L4
+ViCn1BW;;@LHeJ<dS`XESo0
+R7
+32
+Z46 !s108 1588382420.342000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\PC_Register.vhd|
+Z48 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\PC_Register.vhd|
+R11
+R12
+!s100 CXQQ[W?8aXi06=`fL7YDc3
+!i10b 1
+Aarch_pc
+R2
+R3
+DEx4 work 2 pc 0 22 iCn1BW;;@LHeJ<dS`XESo0
+l12
+L11
+V3cX8f@jn]d36_^OcV9>o23
+R7
+32
+R46
+R47
+R48
+R11
+R12
+!s100 fLF3T;a7Bg@5OL`8RUML63
+!i10b 1
+Eregisterfile
+Z49 w1588314487
+R2
+R3
+R4
+Z50 8D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd
+Z51 FD:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd
 l0
 L4
 VhV@6C9>B8ThjLoX^`B0b32
 R7
 32
-Z49 !s108 1588314504.304000
-Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Registerfile.vhd|
-Z51 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Registerfile.vhd|
+Z52 !s108 1588372556.921000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd|
+Z54 !s107 D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd|
 R11
 R12
 !s100 OO@WLYaUgVUldBWRc[MA>3
@@ -245,63 +280,63 @@ L15
 V7<mJnE_H^I?jLDKTnAVSJ2
 R7
 32
-R49
-R50
-R51
+R52
+R53
+R54
 R11
 R12
 !s100 KFg2j9Z4QkB`fn_Qc::4M3
 !i10b 1
 Eregisterr
-Z52 w1588298220
+Z55 w1588382738
 R2
 R3
 R4
-Z53 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd
-Z54 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd
+Z56 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd
+Z57 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd
 l0
 L5
 VDcceU0@gjU[5UalfM1^n92
+!s100 7T98bmd_F=23WdYHnE2kI0
 R7
 32
-Z55 !s108 1588314504.590000
-Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd|
-Z57 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd|
+!i10b 1
+Z58 !s108 1588382744.266000
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd|
+Z60 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Register.vhd|
 R11
 R12
-!s100 7T98bmd_F=23WdYHnE2kI0
-!i10b 1
 Aarch_registerr
 R2
 R3
-DEx4 work 9 registerr 0 22 DcceU0@gjU[5UalfM1^n92
+Z61 DEx4 work 9 registerr 0 22 DcceU0@gjU[5UalfM1^n92
 l14
 L13
-VgSa?_jWoe?NZO@E6A6n9i1
+VFiCDO;;YZo4THK>FRBW^U1
+!s100 >PFXzZoQDNe>GL68OiOQ_3
 R7
 32
-R55
-R56
-R57
+!i10b 1
+R58
+R59
+R60
 R11
 R12
-!s100 dzVY]?LdWh0XRI7L8<F4Q2
-!i10b 1
 Etristate
-Z58 w1588286298
+Z62 w1588286298
 R2
 R3
 R4
-Z59 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd
-Z60 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd
+Z63 8D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd
+Z64 FD:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd
 l0
 L4
 V87:=zBJR=7?G3ocV8U`1Q3
 R7
 32
-Z61 !s108 1588307353.531000
-Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd|
-Z63 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd|
+Z65 !s108 1588307353.531000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd|
+Z67 !s107 D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Tristate.vhd|
 R11
 R12
 !s100 EUUWU33kXV37;YASV0?1S2
@@ -315,9 +350,9 @@ L10
 VFQ^9>FLE3MR4MdBhGFL_J2
 R7
 32
-R61
-R62
-R63
+R65
+R66
+R67
 R11
 R12
 !s100 5E:i[Bfe41fP40eXD7=SM0

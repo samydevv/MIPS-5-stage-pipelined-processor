@@ -16,7 +16,7 @@ Architecture arch_Registerr of Registerr is
        begin
             if rst='1' then
                dataout<=(others=>'0');
-            elsif falling_edge (clk) then 
+            elsif rising_edge (clk) then 
                   if en='1' then
                      dataout<=datain;
                   end if;

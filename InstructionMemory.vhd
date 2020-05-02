@@ -10,7 +10,7 @@ Entity InstructionMemory is
 End Entity InstructionMemory;
 
 Architecture arch_InstructionMemory Of InstructionMemory Is
-  type ram_type is array (0 to 1048575) of std_logic_vector(15 downto 0); --2^32=4GB  4294967295
+  type ram_type is array (0 to 4095) of std_logic_vector(15 downto 0); --2^12=4KB  4096 byte
 	signal ram       : ram_type;
 	signal rPC_value :  std_logic_vector(31 downto 0);
   BEGIN
