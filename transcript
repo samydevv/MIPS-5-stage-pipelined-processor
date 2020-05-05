@@ -1,0 +1,492 @@
+# Compile of Registerfile.vhd was successful.
+# Compile of DataMemory.vhd was successful.
+# Compile of DecoderRegisterFile.vhd was successful.
+# Compile of InstructionMemory.vhd was successful.
+# Compile of MultiplexerRegisterFile2to1.vhd was successful.
+# Compile of MultiplexerRegisterFile8to1.vhd was successful.
+# Compile of OrRegisterFile.vhd was successful.
+# Compile of PC_Register.vhd was successful.
+# Compile of Register.vhd was successful.
+# Compile of PartA_ALU.vhd was successful.
+# Compile of PartB_ALU.vhd was successful.
+# Compile of PartC_ALU.vhd was successful.
+# 12 compiles, 0 failed with no errors. 
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd failed with 5 errors.
+# Compile of PartA_ALU.vhd failed with 6 errors.
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd was successful.
+vsim -gui work.parta
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+add wave -position insertpoint  \
+sim:/parta/A \
+sim:/parta/B \
+sim:/parta/F
+add wave -position insertpoint  \
+sim:/parta/S0 \
+sim:/parta/S1
+force -freeze sim:/parta/A 4 0
+# Value length (1) does not equal array index length (32).
+# 
+# ** Error: (vsim-4011) Invalid force value: 4 0.
+# 
+force -freeze sim:/parta/A 32'h04 0
+force -freeze sim:/parta/B 32'h05 0
+force -freeze sim:/parta/S0 0 0
+force -freeze sim:/parta/S1 0 0
+run
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# ** Error: invalid command name "sim:/parta/A"
+# Error in macro ./partA.do line 4
+# invalid command name "sim:/parta/A"
+#     while executing
+# "sim:/parta/A \
+# sim:/parta/B \
+# sim:/parta/F"
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# ** Error: invalid command name "sim:/parta/A"
+# Error in macro ./partA.do line 6
+# invalid command name "sim:/parta/A"
+#     while executing
+# "sim:/parta/A \
+# sim:/parta/B \
+# sim:/parta/F \
+# sim:/parta/S0 \
+# sim:/parta/S1"
+vsim -gui work.parta
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+add wave -position insertpoint  \
+sim:/parta/S0 \
+sim:/parta/S1 \
+sim:/parta/Cin \
+sim:/parta/A \
+sim:/parta/B \
+sim:/parta/Cout \
+sim:/parta/F
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+quit -sim
+# Compile of PartA_ALU.vhd failed with 4 errors.
+# Compile of PartA_ALU.vhd was successful with warnings.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 33 (32 downto 0). Right is 32 (31 downto 0).
+#    Time: 0 ps  Iteration: 0  Process: /parta/line__15 File: C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd
+# Fatal error in Architecture archA at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd line 18
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd 18 Architecture archA
+# 
+quit -sim
+# Compile of PartA_ALU.vhd was successful.
+vsim work.parta
+# vsim work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+vsim work.parta
+# vsim work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+quit -sim
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd was successful.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# Compile of PartA_ALU.vhd was successful.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+add wave -position insertpoint  \
+sim:/parta/RESULT
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# Compile of PartA_ALU.vhd was successful.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# Compile of PartA_ALU.vhd was successful.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+quit -sim
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd failed with 2 errors.
+# Compile of PartA_ALU.vhd failed with 1 errors.
+# Compile of PartA_ALU.vhd was successful.
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /parta
+do partA.do
+# vsim -gui work.parta 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parta(archa)
+# hexadecimal
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /parta
+quit -sim
+# Compile of PartB_ALU.vhd failed with 2 errors.
+# Compile of PartB_ALU.vhd was successful.
+do partB.do
+# vsim -gui work.partb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.partb(archb)
+# ** Error: (vish-4014) No objects found matching '/partb/CF'.
+# Error in macro ./partB.do line 11
+# (vish-4014) No objects found matching '/partb/CF'.
+#     while executing
+# "add wave -position insertpoint  \
+# sim:/partb/S0 \
+# sim:/partb/S1 \
+# sim:/partb/A \
+# sim:/partb/B \
+# sim:/partb/CF \
+# sim:/partb/NF \
+# sim:/partb/ZF \
+# sim:/p..."
+do partB.do
+# vsim -gui work.partb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.partb(archb)
+# Compile of PartB_ALU.vhd was successful.
+do partB.do
+# vsim -gui work.partb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.partb(archb)
+quit -sim
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 4 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 5 errors.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd was successful.
+# Compile of PartC_ALU.vhd was successful.
+# Compile of PartC_ALU.vhd was successful.
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# ** Error: invalid command name "redix"
+# Error in macro ./partC.do line 13
+# invalid command name "redix"
+#     while executing
+# "redix hex"
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# hexadecimal
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# binary
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# binary
+# ** Fatal: (vsim-3734) Index value 65534 is out of range 31 downto 0.
+#    Time: 500 ps  Iteration: 0  Process: /partc/line__21 File: C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd
+# Fatal error in Architecture archC at C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd line 24
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd 24 Architecture archC
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd 24 Architecture archC
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd 24 Architecture archC
+# 
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd was successful with warnings.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 1 errors.
+# Compile of PartC_ALU.vhd failed with 2 errors.
+# Compile of PartC_ALU.vhd failed with 2 errors.
+# Compile of PartC_ALU.vhd was successful.
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# ** Error: (vish-4014) No objects found matching '/partc/B'.
+# Error in macro ./partC.do line 10
+# (vish-4014) No objects found matching '/partc/B'.
+#     while executing
+# "add wave -position insertpoint  \
+# sim:/partc/S0 \
+# sim:/partc/S1 \
+# sim:/partc/A \
+# sim:/partc/B \
+# sim:/partc/CF \
+# sim:/partc/Cin \
+# sim:/partc/Imm \
+# sim:..."
+do partC.do
+# vsim -gui work.partc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partc(archc)
+# binary
+quit -sim
+# Compile of PartD_ALU.vhd was successful.
+do partD.do
+# vsim -gui work.partd 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partd(archd)
+# binary
+do partD.do
+# vsim -gui work.partd 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partd(archd)
+# hexadecimal
+do partD.do
+# vsim -gui work.partd 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.partd(archd)
+# hexadecimal
+quit -sim
+# Compile of Registerfile.vhd was successful.
+# Compile of DataMemory.vhd was successful.
+# Compile of DecoderRegisterFile.vhd was successful.
+# Compile of InstructionMemory.vhd was successful.
+# Compile of MultiplexerRegisterFile2to1.vhd was successful.
+# Compile of MultiplexerRegisterFile8to1.vhd was successful.
+# Compile of OrRegisterFile.vhd was successful.
+# Compile of PC_Register.vhd was successful.
+# Compile of Register.vhd was successful.
+# Compile of PartA_ALU.vhd was successful.
+# Compile of PartB_ALU.vhd was successful.
+# Compile of PartC_ALU.vhd was successful.
+# Compile of PartD_ALU.vhd was successful.
+# Compile of ALU.vhd failed with 3 errors.
+# 14 compiles, 1 failed with 3 errors. 
+# Compile of ALU.vhd failed with 3 errors.
+# Compile of ALU.vhd failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd was successful.
