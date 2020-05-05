@@ -7,8 +7,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling architecture arch_Mux8_1 of Mux8_1
 
 <<<<<<< HEAD
-} {} {}} {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd}
-=======
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus1.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus1.vhd}
 >>>>>>> intermediate_buffer
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -20,8 +18,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling architecture arch_PC_Plus1 of PC_Plus1
 
 <<<<<<< HEAD
-} {} {}} {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd}
-=======
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus2.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus2.vhd}
 >>>>>>> intermediate_buffer
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -32,12 +28,10 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity PC
 -- Compiling architecture arch_PC of PC
 
-} {} {}} {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd}
 =======
--- Loading package NUMERIC_STD
--- Compiling entity PC_Plus2
--- Compiling architecture arch_PC_Plus2 of PC_Plus2
-
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd}
+=======
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Control.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Control.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -57,8 +51,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling architecture arch_Decoder of Decoder
 
 <<<<<<< HEAD
-} {} {}} {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd}
-=======
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/IF_ID.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/IF_ID.vhd}
 >>>>>>> intermediate_buffer
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -81,6 +73,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Mux8_1
 -- Compiling architecture arch_Mux8_1 of Mux8_1
 
+} {} {}} {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd}
+=======
+-- Loading package NUMERIC_STD
+-- Compiling entity PC_Plus2
+-- Compiling architecture arch_PC_Plus2 of PC_Plus2
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd}
+=======
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -115,6 +115,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity SignExtend
 -- Compiling architecture arch_SignExtend of SignExtend
 
+} {} {}} {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Mux2_1
+-- Compiling architecture arch_Mux2_1 of Mux2_1
+
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\InstructionMemory.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -132,14 +140,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Decoder
 -- Compiling architecture arch_Decoder of Decoder
 >>>>>>> intermediate_buffer
-
-} {} {}} {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Mux2_1
--- Compiling architecture arch_Mux2_1 of Mux2_1
 
 } {} {}} {C:/Users/Huawei/Desktop/arch project/DataMemory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/DataMemory.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
