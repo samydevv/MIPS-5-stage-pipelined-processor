@@ -1,12 +1,12 @@
-{D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile2to1.vhd}
+{C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile8to1.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile8to1.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity Mux2_1
--- Compiling architecture arch_Mux2_1 of Mux2_1
+-- Compiling entity Mux8_1
+-- Compiling architecture arch_Mux8_1 of Mux8_1
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/OrRegisterFile.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/OrRegisterFile.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -14,7 +14,49 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity OR_2
 -- Compiling architecture arch_OR_2 of OR_2
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/InstructionMemory.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PC_Register.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity PC
+-- Compiling architecture arch_PC of PC
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PartA_ALU.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity partA
+-- Compiling architecture archA of partA
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PartB_ALU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PartB_ALU.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity partB
+-- Compiling architecture archB of partB
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PartC_ALU.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity partC
+-- Compiling architecture archC of partC
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/DecoderRegisterFile.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Decoder
+-- Compiling architecture arch_Decoder of Decoder
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/InstructionMemory.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -23,40 +65,16 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity InstructionMemory
 -- Compiling architecture arch_InstructionMemory of InstructionMemory
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/PartD_ALU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/PartD_ALU.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity DataMemory
--- Compiling architecture arch_DataMemory of DataMemory
+-- Compiling entity partD
+-- Compiling architecture archD of partD
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DecoderRegisterFile.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Decoder
--- Compiling architecture arch_Decoder of Decoder
-
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/PC_Register.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/PC_Register.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity PC
--- Compiling architecture arch_PC of PC
-
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Mux8_1
--- Compiling architecture arch_Mux8_1 of Mux8_1
-
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Registerfile.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/Registerfile.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/Registerfile.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -64,12 +82,29 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity RegisterFile
 -- Compiling architecture arch_RegisterFile of RegisterFile
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Register.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Register.vhd}
+} {} {}} {C:/Users/Huawei/Desktop/arch project/Register.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/Register.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity Registerr
 -- Compiling architecture arch_Registerr of Registerr
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/MultiplexerRegisterFile2to1.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Mux2_1
+-- Compiling architecture arch_Mux2_1 of Mux2_1
+
+} {} {}} {C:/Users/Huawei/Desktop/arch project/DataMemory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Huawei/Desktop/arch project/DataMemory.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DataMemory
+-- Compiling architecture arch_DataMemory of DataMemory
 
 } {} {}}
