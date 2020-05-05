@@ -27,7 +27,7 @@ Architecture arch_DataMemory Of DataMemory IS
                 end if;
 		        end if;
 		        if ReadEnable = '1' then
-	             dataout <= dataMemory(to_integer(unsigned(address)));
+	             dataout <= dataMemory(to_integer(unsigned(raddress))) & dataMemory(to_integer(unsigned(address)));
             end if;
 	     end process;
 End arch_DataMemory;    

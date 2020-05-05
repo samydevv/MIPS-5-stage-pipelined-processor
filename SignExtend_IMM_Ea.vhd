@@ -10,9 +10,11 @@ Entity SignExtend is
 End Entity SignExtend;
 
 Architecture arch_SignExtend of SignExtend is
-  SIGNAL rEA : std_logic_vector(15 downto 0);
+  SIGNAL rEA : std_logic_vector(11 downto 0);
+  SIGNAL rIMM : std_logic_vector(15 downto 0);
   Begin
-       rEA <= "0000000000000000"; 
+       rIMM <= "0000000000000000"; 
+       rEA <= "000000000000";
     process(Enable)
       begin
         if (Enable = "00") then
@@ -22,7 +24,10 @@ Architecture arch_SignExtend of SignExtend is
                IMM_EA_out <= std_logic_vector(resize(signed(IMM_EA_in(19 downto 4)),IMM_EA_out'length));
          end if;
         if (Enable = "10") then
-               IMM_EA_out <= rEA & IMM_EA_in(19 downto 4) ;
+               IMM_EA_out <= rIMM & IMM_EA_in(19 downto 4) ;
          end if;
+        if (Enable = "11") then
+               IMM_EA_out <= rEA & IMM_EA_in ;
+         end if;         
     end process;
  End arch_SignExtend;

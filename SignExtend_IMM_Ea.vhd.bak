@@ -15,13 +15,13 @@ Architecture arch_SignExtend of SignExtend is
        rEA <= "0000000000000000"; 
     process(Enable)
       begin
-        if (Enable = '00') then
+        if (Enable = "00") then
                IMM_EA_out <= std_logic_vector(resize(signed(IMM_EA_in),IMM_EA_out'length));
         end if; 
-        if (Enable = '01') then
+        if (Enable = "01") then
                IMM_EA_out <= std_logic_vector(resize(signed(IMM_EA_in(19 downto 4)),IMM_EA_out'length));
          end if;
-        if (Enable = '10') then
+        if (Enable = "10") then
                IMM_EA_out <= rEA & IMM_EA_in(19 downto 4) ;
          end if;
     end process;
