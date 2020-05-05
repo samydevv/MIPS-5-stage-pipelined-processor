@@ -6,7 +6,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Mux2_1
 -- Compiling architecture arch_Mux2_1 of Mux2_1
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus1.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Adder_PC_Plus1.vhd}
+} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus1.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Adder_PC_Plus1.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -24,7 +24,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity PC_Plus2
 -- Compiling architecture arch_PC_Plus2 of PC_Plus2
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Control.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\Control.vhd}
+} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Control.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/Control.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -33,22 +33,13 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Control
 -- Compiling architecture arch_Control of Control
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/ALU.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\ALU.vhd}
+} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/ALU.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/ALU.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity ALU
 -- Compiling architecture archALU of ALU
-
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity DataMemory
--- Compiling architecture arch_DataMemory of DataMemory
 
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/IF_ID.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/IF_ID.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -58,6 +49,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity IF_ID
 -- Compiling architecture arch_IF_ID of IF_ID
+
+} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/DataMemory.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DataMemory
+-- Compiling architecture arch_DataMemory of DataMemory
 
 } {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/MultiplexerRegisterFile8to1.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -83,7 +83,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity PC
 -- Compiling architecture arch_PC of PC
 
-} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/SignExtend_IMM_Ea.vhd} {1 {vcom -work work -2002 -explicit {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\SignExtend_IMM_Ea.vhd}
+} {} {}} {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/SignExtend_IMM_Ea.vhd} {1 {vcom -work work -2002 -explicit {D:/CUFE/6th_Semester/CMPN301_Computer Architecture/New 2020/Project/-Designing-and-implementing-a-simple-5-stage-pipelined-processor/SignExtend_IMM_Ea.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
