@@ -20,12 +20,12 @@ Architecture arch_DataMemory Of DataMemory IS
        raddress<= std_logic_vector(unsigned(address) + 1);
        process(clk) is
 	     begin
-		        if rising_edge(clk) then
+		       --if rising_edge(clk) then
 		            if WriteEnable = '1' then
 	                 dataMemory(to_integer(unsigned(address))) <= datain (15 downto 0);
 	                 dataMemory(to_integer(unsigned(raddress))) <= datain (31 downto 16);
                 end if;
-		        end if;
+		       --end if;
 		        if ReadEnable = '1' then
 	             dataout <= dataMemory(to_integer(unsigned(raddress))) & dataMemory(to_integer(unsigned(address)));
             end if;
