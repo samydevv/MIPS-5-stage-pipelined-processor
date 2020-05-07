@@ -3,7 +3,9 @@ USE IEEE.std_logic_1164.all;
 USE IEEE.numeric_std.all;
 
 Entity IE_MEM is
-    port(             -----in Port-----
+    port(
+          rst,clk               :in std_logic;
+                 -----in Port-----
          Call_in                : in std_logic;                    
          RET_in                 : in std_logic;                    
          POP_in                 : in std_logic;                    
@@ -43,21 +45,44 @@ End Entity IE_MEM;
 
 Architecture arch_IE_MEM Of IE_MEM Is
   BEGIN
-		Call_out              <=   Call_in;                
-		RET_out               <=   RET_in;               
-		POP_out               <=   POP_in;                 
-		PUSH_out              <=   PUSH_in;                
-		RTI_out               <=   RTI_in;                 
-		Stack_operation_out   <=   Stack_operation_in;     
-		JMP_out               <=   JMP_in;                 
-		JMP_ZF_out            <=   JMP_ZF_in;              
-		JMP_CF_out            <=   JMP_CF_in;             
-		JMP_NF_out            <=   JMP_NF_in;              
-		WB_out                <=   WB_in;                  
-		MEM_out               <=   MEM_in;                 
-		Write_Enable_out      <=   Write_Enable_in;        
-		Interrupt_out         <=   Interrupt_in;           
-		Reset_out             <=   Reset_in;               
-		Swap_Enable_out       <=   Swap_Enable_in;         
-		
+       process(clk,rst)
+       begin
+            if rst='1' then
+              Call_out              <=   '0';
+		          RET_out               <=   '0';
+		          POP_out               <=   '0';
+		          PUSH_out              <=   '0';         
+		          RTI_out               <=   '0';         
+		          Stack_operation_out   <=   '0';     
+		          JMP_out               <=   '0';         
+		          JMP_ZF_out            <=   '0';         
+		          JMP_CF_out            <=   '0';        
+		          JMP_NF_out            <=   '0';         
+		          WB_out                <=   (others =>'0');         
+		          MEM_out               <=   (others =>'0');         
+		          Write_Enable_out      <=   '0';        
+		          Interrupt_out         <=   '0';         
+		          Reset_out             <=   '0';         
+		          Swap_Enable_out       <=   '0';
+		          
+            elsif rising_edge (clk) then    
+              Call_out              <=   Call_in;                
+		          RET_out               <=   RET_in;               
+		          POP_out               <=   POP_in;                 
+		          PUSH_out              <=   PUSH_in;                
+		          RTI_out               <=   RTI_in;                 
+		          Stack_operation_out   <=   Stack_operation_in;     
+		          JMP_out               <=   JMP_in;                 
+		          JMP_ZF_out            <=   JMP_ZF_in;              
+		          JMP_CF_out            <=   JMP_CF_in;             
+		          JMP_NF_out            <=   JMP_NF_in;              
+		          WB_out                <=   WB_in;                  
+		          MEM_out               <=   MEM_in;                 
+		          Write_Enable_out      <=   Write_Enable_in;        
+		          Interrupt_out         <=   Interrupt_in;           
+		          Reset_out             <=   Reset_in;               
+		          Swap_Enable_out       <=   Swap_Enable_in;
+            end if;
+          end process;
+
 End arch_IE_MEM; 
