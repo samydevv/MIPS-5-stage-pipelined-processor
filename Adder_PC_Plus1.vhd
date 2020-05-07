@@ -14,7 +14,7 @@ Architecture arch_PC_Plus1 of PC_Plus1 is
     SIGNAL SUM1: integer := 0;
     Begin 
          AddressInteger1  <=    to_integer(unsigned(PC));
-         SUM1             <=    AddressInteger1+2;
+         SUM1             <=    AddressInteger1+1;
          PcPlus1          <=    std_logic_vector(to_unsigned(SUM1,32));
 
 End arch_PC_Plus1 ;
