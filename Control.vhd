@@ -44,14 +44,14 @@ Architecture arch_Control Of Control Is
             else   "00000000000010000000001000000" when OP_Code = "11" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'
             else   "00001010000000010000000000000" when OP_Code = "11" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'            
             else   "00010010000101100000001000000" when OP_Code = "11" and  Function_Code ="110" and Interrupt_in ='0' and Reset_in = '0'                        
-            else   "00000000000000000000001000001" when OP_Code = "10" and  Function_Code ="000" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of SAWP operation to alu                                  
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="001" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of ADD  operation to alu                                  
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="010" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of SUB  operation to alu                                  
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="011" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of AND  operation to alu                                                
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of OR   operation to alu  
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of NOT  operation to alu
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="110" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of INC  operation to alu              
-            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="111" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of DEC  operation to alu              
+            else   "00000000000000001100001000001" when OP_Code = "10" and  Function_Code ="000" and Interrupt_in ='0' and Reset_in = '0'                                      
+            else   "00000000000000000000001000000" when OP_Code = "10" and  Function_Code ="001" and Interrupt_in ='0' and Reset_in = '0'                                                  
+            else   "00000000000000000001001000000" when OP_Code = "10" and  Function_Code ="010" and Interrupt_in ='0' and Reset_in = '0'                                                  
+            else   "00000000000000000100001000000" when OP_Code = "10" and  Function_Code ="011" and Interrupt_in ='0' and Reset_in = '0'                                                             
+            else   "00000000000000000101001000000" when OP_Code = "10" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'              
+            else   "00000000000000000110001000000" when OP_Code = "10" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'            
+            else   "00000000000000000010001000000" when OP_Code = "10" and  Function_Code ="110" and Interrupt_in ='0' and Reset_in = '0'                           
+            else   "00000000000000000011001000000" when OP_Code = "10" and  Function_Code ="111" and Interrupt_in ='0' and Reset_in = '0'                
             else   "00000000100000000000000000000" when OP_Code = "01" and  Function_Code ="000" and Interrupt_in ='0' and Reset_in = '0'              
             else   "00000000001000000000000000000" when OP_Code = "01" and  Function_Code ="001" and Interrupt_in ='0' and Reset_in = '0'                            
             else   "00000000010000000000000000000" when OP_Code = "01" and  Function_Code ="010" and Interrupt_in ='0' and Reset_in = '0'                          
@@ -59,12 +59,12 @@ Architecture arch_Control Of Control Is
             else   "01000010000000010000000000000" when OP_Code = "01" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'                          
             else   "00100010000000100000000000000" when OP_Code = "01" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'
             else   "00000110000000100000000000000" when OP_Code = "01" and  Function_Code ="110" and Interrupt_in ='0' and Reset_in = '0'
-            else   "00000000000000000000001101000" when OP_Code = "00" and  Function_Code ="000" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of IADD operation to alu 
-            else   "00000000000100000000001101000" when OP_Code = "00" and  Function_Code ="001" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of SHL  operation to alu 
-            else   "00000000000100000000001101000" when OP_Code = "00" and  Function_Code ="010" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of SHR  operation to alu 
-            else   "00000000000000000000001110000" when OP_Code = "00" and  Function_Code ="011" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of LDM  operation to alu 
-            else   "00000000000001100000001111000" when OP_Code = "00" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of LDD  operation to alu 
-            else   "00000000000000010000000111000" when OP_Code = "00" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'  --i didn't put the code of STD  operation to alu 
+            else   "00000000000000000000001101000" when OP_Code = "00" and  Function_Code ="000" and Interrupt_in ='0' and Reset_in = '0'  
+            else   "00000000000100001000001101000" when OP_Code = "00" and  Function_Code ="001" and Interrupt_in ='0' and Reset_in = '0'   
+            else   "00000000000100001001001101000" when OP_Code = "00" and  Function_Code ="010" and Interrupt_in ='0' and Reset_in = '0'   
+            else   "00000000000000001101001110000" when OP_Code = "00" and  Function_Code ="011" and Interrupt_in ='0' and Reset_in = '0'   
+            else   "00000000000001101101001111000" when OP_Code = "00" and  Function_Code ="100" and Interrupt_in ='0' and Reset_in = '0'   
+            else   "00000000000000011101000111000" when OP_Code = "00" and  Function_Code ="101" and Interrupt_in ='0' and Reset_in = '0'   
             else   "00000000000000000000000000000";  
             
             

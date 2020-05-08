@@ -11,23 +11,23 @@ Entity DataMemory is
 End Entity DataMemory;
 
 Architecture arch_DataMemory Of DataMemory IS
-  type ram_data is array (0 to 1048575) of std_logic_vector(15 downto 0); --2^32=4GB  4294967295
+  type ram_data is array (0 to 4095) of std_logic_vector(15 downto 0); --2^12=4kB  
 	signal dataMemory       : ram_data;
-	signal raddress :  std_logic_vector(31 downto 0);
+	signal raddress :  std_logic_vector(10 downto 0);
   BEGIN
        M10 <= dataMemory(1) & dataMemory(0);
        M32 <= dataMemory(3) & dataMemory(2);
-       raddress<= std_logic_vector(unsigned(address) + 1);
+       raddress<= std_logic_vector(unsigned(address(10 downto 0)) + 1);
        process(clk) is
 	     begin
 		       --if rising_edge(clk) then
 		            if WriteEnable = '1' then
-	                 dataMemory(to_integer(unsigned(address))) <= datain (15 downto 0);
+	                 dataMemory(to_integer(unsigned(address(10 downto 0)))) <= datain (15 downto 0);
 	                 dataMemory(to_integer(unsigned(raddress))) <= datain (31 downto 16);
                 end if;
 		       --end if;
 		        if ReadEnable = '1' then
-	             dataout <= dataMemory(to_integer(unsigned(raddress))) & dataMemory(to_integer(unsigned(address)));
+	             dataout <= dataMemory(to_integer(unsigned(raddress))) & dataMemory(to_integer(unsigned(address(10 downto 0))));
             end if;
 	     end process;
 End arch_DataMemory;    

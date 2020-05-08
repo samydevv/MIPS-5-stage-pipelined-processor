@@ -13,9 +13,9 @@ End Entity InstructionMemory;
 Architecture arch_InstructionMemory Of InstructionMemory Is
   type ram_type is array (0 to 4095) of std_logic_vector(15 downto 0); --2^12=4KB  4096 byte
 	signal ram       : ram_type;
-	signal rPC_value :  std_logic_vector(31 downto 0);
+	signal rPC_value :  std_logic_vector(10 downto 0);
   BEGIN
-       rPC_value<= std_logic_vector(unsigned(PC_value) + 1);
+       rPC_value<= std_logic_vector(unsigned(PC_value(10 downto 0)) + 1);
        process
 		        file file_pointer : text;
             variable line_content : string(1 to 16);
@@ -44,5 +44,5 @@ Architecture arch_InstructionMemory Of InstructionMemory Is
               file_close(file_pointer); -- Close the file 
               wait; 
 	     end process;
-	Instruction_out    <= ram(to_integer(unsigned(PC_value)))& ram(to_integer(unsigned(rPC_value)));
+	Instruction_out    <= ram(to_integer(unsigned(PC_value(10 downto 0))))& ram(to_integer(unsigned(rPC_value)));
 End arch_InstructionMemory;    
