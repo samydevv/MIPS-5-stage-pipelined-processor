@@ -25,6 +25,13 @@ Entity ID_IE is
          Interrupt_in           : in std_logic;                     
          Reset_in               : in std_logic;                     
          Swap_Enable_in         : in std_logic;
+		 PC_in                  : in std_logic_vector(31 downto 0);
+         PC_Plus_2_1_in         : in std_logic_vector(31 downto 0);
+		 Rscr1_Address_in       : in std_logic_vector(2  downto 0);
+         Rdst_Address_in        : in std_logic_vector(2  downto 0);
+         Imm_EA_in              : in std_logic_vector(32 downto 0);
+		 Rscr1_Data_in          : in std_logic_vector(31 downto 0);
+		 Rscr2_Data_in          : in std_logic_vector(31 downto 0);
                       -----out Port-----
          Call_out               : out std_logic;                    
          RET_out                : out std_logic;                    
@@ -45,7 +52,15 @@ Entity ID_IE is
          Regsrc2_Control_out    : out std_logic;                     
          Interrupt_out          : out std_logic;                     
          Reset_out              : out std_logic;                     
-         Swap_Enable_out        : out std_logic             
+         Swap_Enable_out        : out std_logic;
+		 PC_out                 : out std_logic_vector(31 downto 0);
+         PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
+		 Rscr1_Address_out      : out std_logic_vector(2  downto 0);
+         Rdst_Address_out       : out std_logic_vector(2  downto 0);
+         Imm_EA_out             : out std_logic_vector(32 downto 0);
+		 Rscr1_Data_out         : out std_logic_vector(31 downto 0);
+		 Rscr2_Data_out         : out std_logic_vector(31 downto 0)
+		 
         );
 End Entity ID_IE;
 
@@ -75,6 +90,13 @@ Architecture arch_ID_IE Of ID_IE Is
                Interrupt_out           <= '0';
                Reset_out               <= '0';
                Swap_Enable_out         <= '0';
+			   PC_out                  <= (others =>'0');
+			   PC_Plus_2_1_out         <= (others =>'0');
+			   Rscr1_Address_out       <= (others =>'0');
+			   Rdst_Address_out        <= (others =>'0');
+               Imm_EA_out              <= (others =>'0');
+               Rscr1_Data_out          <= (others =>'0');
+               Rscr2_Data_out          <= (others =>'0');
 
             elsif rising_edge (clk) then                   
                Call_out                <= Call_in;            
@@ -97,6 +119,14 @@ Architecture arch_ID_IE Of ID_IE Is
                Interrupt_out           <= Interrupt_in;
                Reset_out               <= Reset_in;
                Swap_Enable_out         <= Swap_Enable_in;
+			   PC_out                  <= PC_in;                 
+			   PC_Plus_2_1_out         <= PC_Plus_2_1_in;         
+			   Rscr1_Address_out       <= Rscr1_Address_in;       
+			   Rdst_Address_out        <= Rdst_Address_in;        
+			   Imm_EA_out              <= Imm_EA_in;       
+			   Rscr1_Data_out          <= Rscr1_Data_in;          
+			   Rscr2_Data_out          <= Rscr2_Data_in;          
+			   
             end if;
           end process;
 														   
