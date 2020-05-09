@@ -4,7 +4,7 @@ USE IEEE.numeric_std.all;
 
 Entity IE_MEM is
     port(
-          rst,clk               :in std_logic;
+         rst,clk               :in std_logic;
                  -----in Port-----
          Call_in                : in std_logic;                    
          RET_in                 : in std_logic;                    
@@ -20,7 +20,6 @@ Entity IE_MEM is
          MEM_in                 : in std_logic_vector(1  downto 0);
          Write_Enable_in        : in std_logic;                                       
          Interrupt_in           : in std_logic;                     
-         Reset_in               : in std_logic;                     
          Swap_Enable_in         : in std_logic;
 		     Flags_in	           			: in std_logic_vector(2 downto 0);
 		     Result_ALU_in          : in std_logic_vector(31 downto 0);
@@ -46,7 +45,6 @@ Entity IE_MEM is
          MEM_out                : out std_logic_vector(1  downto 0);
          Write_Enable_out       : out std_logic;                                        
          Interrupt_out          : out std_logic;                     
-         Reset_out              : out std_logic;                     
          Swap_Enable_out        : out std_logic;
 		     Flags_out				: out std_logic_vector(2 downto 0);
 		     Result_ALU_out         : out std_logic_vector(31 downto 0);
@@ -79,7 +77,6 @@ Architecture arch_IE_MEM Of IE_MEM Is
 		          MEM_out               <=   (others =>'0');         
 		          Write_Enable_out      <=   '0';        
 		          Interrupt_out         <=   '0';         
-		          Reset_out             <=   '0';         
 		          Swap_Enable_out       <=   '0';
 				      Flags_out			         	<=   (others =>'0');
 				      Result_ALU_out        <=   (others =>'0');
@@ -106,7 +103,6 @@ Architecture arch_IE_MEM Of IE_MEM Is
 		          MEM_out               <=   MEM_in;                 
 		          Write_Enable_out      <=   Write_Enable_in;        
 		          Interrupt_out         <=   Interrupt_in;           
-		          Reset_out             <=   Reset_in;               
 		          Swap_Enable_out       <=   Swap_Enable_in;
 				      Flags_out		         		<=   Flags_in;			
 				      Result_ALU_out        <=   Result_ALU_in;
