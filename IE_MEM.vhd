@@ -46,7 +46,7 @@ Entity IE_MEM is
          Write_Enable_out       : out std_logic;                                        
          Interrupt_out          : out std_logic;                     
          Swap_Enable_out        : out std_logic;
-		     Flags_out				: out std_logic_vector(2 downto 0);
+		     Flags_out		          		: out std_logic_vector(2 downto 0);
 		     Result_ALU_out         : out std_logic_vector(31 downto 0);
 		     Rsrc1_Value_out        : out std_logic_vector(31 downto 0);
 		     Rsrc2_Value_out        : out std_logic_vector(31 downto 0);

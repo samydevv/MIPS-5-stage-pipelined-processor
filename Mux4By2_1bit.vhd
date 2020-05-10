@@ -10,9 +10,10 @@ use IEEE.STD_LOGIC_1164.ALL;
  
 Architecture arch_Mux4By2_1bits of Mux4By2_1bits is 
    begin
-       Z <=   A when s="00"
-         else B when s="01"
-         else C when s="10";
+       Z <=   B when s="01"
+         else C when s="10"
+         else A;
+           
  End arch_Mux4By2_1bits;
 
 

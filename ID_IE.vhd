@@ -28,7 +28,7 @@ Entity ID_IE is
          PC_Plus_2_1_in         : in std_logic_vector(31 downto 0);
 		     Rscr1_Address_in       : in std_logic_vector(2  downto 0);
          Rdst_Address_in        : in std_logic_vector(2  downto 0);
-         Imm_EA_in              : in std_logic_vector(32 downto 0);
+         Imm_EA_in              : in std_logic_vector(31 downto 0);
 		     Rscr1_Data_in          : in std_logic_vector(31 downto 0);
 		     Rscr2_Data_in          : in std_logic_vector(31 downto 0);
                       -----out Port-----
@@ -55,7 +55,7 @@ Entity ID_IE is
          PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
 		     Rscr1_Address_out      : out std_logic_vector(2  downto 0);
          Rdst_Address_out       : out std_logic_vector(2  downto 0);
-         Imm_EA_out             : out std_logic_vector(32 downto 0);
+         Imm_EA_out             : out std_logic_vector(31 downto 0);
 		     Rscr1_Data_out         : out std_logic_vector(31 downto 0);
 		     Rscr2_Data_out         : out std_logic_vector(31 downto 0)
 		 
