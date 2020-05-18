@@ -35,7 +35,7 @@ Architecture arch_IF_ID Of IF_ID Is
                Rdst_Address    <= (others =>'0');
                Imm_EA          <= (others =>'0');
                
-            elsif rising_edge (clk) then    
+            elsif falling_edge (clk) then    
                PC_out         <= PC_in;
                PC_Plus_2_1_out <= PC_Plus_2_1_in; 
                OP_Code        <= Instruction_in(31 downto 30);

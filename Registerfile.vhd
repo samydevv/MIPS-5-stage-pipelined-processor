@@ -8,7 +8,8 @@ Entity RegisterFile is
        Rsrc1,Rsrc2            :in std_logic_vector(2 downto 0);   --Address of Rscr1,Rscr2
        Rsrc1_Out,Rsrc2_Out    :out std_logic_vector(31 downto 0); --Output data to ALU
        WriteData1,WriteData2  :in  std_logic_vector(31 downto 0); --Data from writeback
-       WriteReg1,WriteReg2    :in std_logic_vector(2 downto 0)    --Address of Reg1,Reg2 from writeback
+       WriteReg1,WriteReg2    :in std_logic_vector(2 downto 0);    --Address of Reg1,Reg2 from writeback
+       R0,R1,R2,R3,R4,R5,R6,R7:out std_logic_vector(31 downto 0) 
        );
 End Entity;
 
@@ -80,19 +81,27 @@ BEGIN
                     
            WriteReg_OR        : OR_2    port map (WriteReg1_decoder_Output,WriteReg2_decoder_Output,Enables_of_Registers);
            -------------------------------- CREATING 8 INSTANCES Registers --------------------------------------
-    	      R0 : Registerr  port map (rst, clk, Enables_of_Registers(0), MuxR1_out, R0_out);  
-           R1 : Registerr  port map (rst, clk, Enables_of_Registers(1), MuxR2_out, R1_out);
-           R2 : Registerr  port map (rst, clk, Enables_of_Registers(2), MuxR3_out, R2_out);  
-           R3 : Registerr  port map (rst, clk, Enables_of_Registers(3), MuxR4_out, R3_out);
-           R4 : Registerr  port map (rst, clk, Enables_of_Registers(4), MuxR5_out, R4_out);  
-           R5 : Registerr  port map (rst, clk, Enables_of_Registers(5), MuxR6_out, R5_out);
-           R6 : Registerr  port map (rst, clk, Enables_of_Registers(6), MuxR7_out, R6_out);  
-           R7 : Registerr  port map (rst, clk, Enables_of_Registers(7), MuxR8_out, R7_out);
+    	      R_0 : Registerr  port map (rst, clk, Enables_of_Registers(0), MuxR1_out, R0_out);  
+           R_1 : Registerr  port map (rst, clk, Enables_of_Registers(1), MuxR2_out, R1_out);
+           R_2 : Registerr  port map (rst, clk, Enables_of_Registers(2), MuxR3_out, R2_out);  
+           R_3 : Registerr  port map (rst, clk, Enables_of_Registers(3), MuxR4_out, R3_out);
+           R_4 : Registerr  port map (rst, clk, Enables_of_Registers(4), MuxR5_out, R4_out);  
+           R_5 : Registerr  port map (rst, clk, Enables_of_Registers(5), MuxR6_out, R5_out);
+           R_6 : Registerr  port map (rst, clk, Enables_of_Registers(6), MuxR7_out, R6_out);  
+           R_7 : Registerr  port map (rst, clk, Enables_of_Registers(7), MuxR8_out, R7_out);
            
            -------------------------------- CREATING 2 INSTANCES MUX8_1 ----------------------------------------
            Mux_Rscr1:  Mux8_1  port map (R0_out,R1_out,R2_out,R3_out,R4_out,R5_out,R6_out,R7_out,Rsrc1,Rsrc1_Out);
            Mux_Rscr2:  Mux8_1  port map (R0_out,R1_out,R2_out,R3_out,R4_out,R5_out,R6_out,R7_out,Rsrc2,Rsrc2_Out);
-       
+           -------------------------------- Assigne output of registers ----------------------------------------
+           R0 <= R0_out;
+           R1 <= R1_out;
+           R2 <= R2_out;
+           R3 <= R3_out;
+           R4 <= R4_out;
+           R5 <= R5_out;
+           R6 <= R6_out;
+           R7 <= R7_out;
        
 
 End arch_RegisterFile; 

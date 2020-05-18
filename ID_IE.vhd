@@ -95,7 +95,7 @@ Architecture arch_ID_IE Of ID_IE Is
                Rscr1_Data_out          <= (others =>'0');
                Rscr2_Data_out          <= (others =>'0');
 
-            elsif rising_edge (clk) then                   
+            elsif falling_edge (clk) then                   
                Call_out                <= Call_in;            
                RET_out                 <= RET_in;            
                POP_out                 <= POP_in;            

@@ -115,7 +115,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
            Rsrc1,Rsrc2            :in std_logic_vector(2 downto 0);   
            Rsrc1_Out,Rsrc2_Out    :out std_logic_vector(31 downto 0); 
            WriteData1,WriteData2  :in  std_logic_vector(31 downto 0); 
-           WriteReg1,WriteReg2    :in std_logic_vector(2 downto 0)    
+           WriteReg1,WriteReg2    :in std_logic_vector(2 downto 0);
+           R0,R1,R2,R3,R4,R5,R6,R7:out std_logic_vector(31 downto 0)    
           );
     End COMPONENT;  
   ----------------------------------------------------    
@@ -417,7 +418,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   SIGNAL Rsrc1_Data,Rsrc2_Data     : std_logic_vector(31 downto 0); 
   SIGNAL Reg_WB_Data1,Reg_WB_Data2 : std_logic_vector(31 downto 0); 
   SIGNAL Reg_WB_Addr1,Reg_WB_Addr2 : std_logic_vector(2 downto 0); 
-
+  SIGNAL R0,R1,R2,R3,R4,R5,R6,R7   : std_logic_vector(31 downto 0);
   
   ----***Sign Extend***----
   SIGNAL IMM_EA_out : std_logic_vector(31 downto 0); 
@@ -584,7 +585,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   MUX_Scrs2 : Mux2By1_3bits port map (Rscr2_Address,Rdst_Address,Swap_Enable,Scr2_Address);
 
   ----***Register File***----
-  Register_File : RegisterFile port map (rst,clk,Write_Enable_WB,Swap_Enable_WB,Rscr1_Address,Scr2_Address,Rsrc1_Data,Rsrc2_Data,Reg_WB_Data1,Reg_WB_Data2,Reg_WB_Addr1,Reg_WB_Addr2);
+  Register_File : RegisterFile port map (rst,clk,Write_Enable_WB,Swap_Enable_WB,Rscr1_Address,Scr2_Address,Rsrc1_Data,Rsrc2_Data,Reg_WB_Data1,Reg_WB_Data2,Reg_WB_Addr1,Reg_WB_Addr2,R0,R1,R2,R3,R4,R5,R6,R7);
   
   ----***Sign Extend***----
   Sign_Extend : SignExtend port map (Sign_Extend_Enable,Imm_EA,IMM_EA_out);    

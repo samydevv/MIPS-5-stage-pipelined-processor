@@ -88,7 +88,7 @@ Architecture arch_IE_MEM Of IE_MEM Is
 				      PC_Plus_2_1_out       <=   (others =>'0');
 				  
 		          
-            elsif rising_edge (clk) then    
+            elsif falling_edge (clk) then    
               Call_out              <=   Call_in;                
 		          RET_out               <=   RET_in;               
 		          POP_out               <=   POP_in;                 

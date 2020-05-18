@@ -40,7 +40,7 @@ Architecture arch_MEM_WB Of MEM_WB Is
 			         	Reg_WB_address2_out     <=   (others =>'0');  
 			         	Reg_WB_Value_2          <=   (others =>'0');  
 				
-            elsif rising_edge (clk) then                                  
+            elsif falling_edge (clk) then                                  
 		               WB_out               <=  WB_in;                
 				           Write_Enable_out     <=  Write_Enable_in;
                    Swap_Enable_out      <=  Swap_Enable_in;
