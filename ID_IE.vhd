@@ -5,6 +5,8 @@ USE IEEE.numeric_std.all;
 Entity ID_IE is
     port(rst,clk                :in std_logic;
                  -----in Port-----
+         ALU_Enable_in          : in std_logic;
+         CCR_Enable_in          : in std_logic;
          Call_in                : in std_logic;                    
          RET_in                 : in std_logic;                    
          POP_in                 : in std_logic;                    
@@ -32,6 +34,8 @@ Entity ID_IE is
 		     Rscr1_Data_in          : in std_logic_vector(31 downto 0);
 		     Rscr2_Data_in          : in std_logic_vector(31 downto 0);
                       -----out Port-----
+         ALU_Enable_out         : out std_logic;
+         CCR_Enable_out         : out std_logic; 
          Call_out               : out std_logic;                    
          RET_out                : out std_logic;                    
          POP_out                : out std_logic;                    
@@ -57,7 +61,9 @@ Entity ID_IE is
          Rdst_Address_out       : out std_logic_vector(2  downto 0);
          Imm_EA_out             : out std_logic_vector(31 downto 0);
 		     Rscr1_Data_out         : out std_logic_vector(31 downto 0);
-		     Rscr2_Data_out         : out std_logic_vector(31 downto 0)
+		     Rscr2_Data_out         : out std_logic_vector(31 downto 0);
+		     IN_Port_IN             : in std_logic_vector(31 downto 0);
+	       IN_Port_out            : out std_logic_vector(31 downto 0)
 		 
         );
 End Entity ID_IE;
@@ -67,7 +73,9 @@ Architecture arch_ID_IE Of ID_IE Is
   BEGIN
        process(clk,rst)
        begin
-            if rst='1' then        
+            if rst='1' then 
+               ALU_Enable_out          <= '0';            
+               CCR_Enable_out          <= '0';            
                Call_out                <= '0';            
                RET_out                 <= '0';
                POP_out                 <= '0';
@@ -94,8 +102,11 @@ Architecture arch_ID_IE Of ID_IE Is
                Imm_EA_out              <= (others =>'0');
                Rscr1_Data_out          <= (others =>'0');
                Rscr2_Data_out          <= (others =>'0');
-
-            elsif falling_edge (clk) then                   
+			         IN_Port_out             <= (others =>'0');
+			   
+            elsif falling_edge (clk) then   
+               ALU_Enable_out          <= ALU_Enable_in;            
+               CCR_Enable_out          <= CCR_Enable_in;            
                Call_out                <= Call_in;            
                RET_out                 <= RET_in;            
                POP_out                 <= POP_in;            
@@ -121,7 +132,8 @@ Architecture arch_ID_IE Of ID_IE Is
          			   Rdst_Address_out        <= Rdst_Address_in;        
          			   Imm_EA_out              <= Imm_EA_in;       
          			   Rscr1_Data_out          <= Rscr1_Data_in;          
-         			   Rscr2_Data_out          <= Rscr2_Data_in;          
+         			   Rscr2_Data_out          <= Rscr2_Data_in; 
+			         IN_Port_out             <= IN_Port_IN;
 			   
             end if;
           end process;

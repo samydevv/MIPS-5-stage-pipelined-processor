@@ -53,7 +53,9 @@ Entity IE_MEM is
 		     Reg_WB_address_out     : out std_logic_vector(2 downto 0);
 		     Rscr1_Address_out      : out std_logic_vector(2 downto 0);
 		     PC_out                 : out std_logic_vector(31 downto 0);
-         PC_Plus_2_1_out        : out std_logic_vector(31 downto 0)
+         PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
+		     IN_Port_IN             : in std_logic_vector(31 downto 0);
+	       IN_Port_out            : out std_logic_vector(31 downto 0)
         );
 End Entity IE_MEM;
 
@@ -86,6 +88,7 @@ Architecture arch_IE_MEM Of IE_MEM Is
 				      Rscr1_Address_out     <=   (others =>'0');
 				      PC_out                <=   (others =>'0');
 				      PC_Plus_2_1_out       <=   (others =>'0');
+					    IN_Port_out           <= (others =>'0');
 				  
 		          
             elsif falling_edge (clk) then    
@@ -112,7 +115,8 @@ Architecture arch_IE_MEM Of IE_MEM Is
 				      Rscr1_Address_out     <=   Rscr1_Address_in; 
 				      PC_out                <=   PC_in;            
 				      PC_Plus_2_1_out       <=   PC_Plus_2_1_in;   
-				  
+				      IN_Port_out           <= IN_Port_IN;
+					  
             end if;
           end process;
 
