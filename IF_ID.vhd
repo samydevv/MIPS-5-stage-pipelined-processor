@@ -5,6 +5,7 @@ USE IEEE.numeric_std.all;
 Entity IF_ID is
     port(
        rst,clk        :in std_logic;
+       FlushEn        :in std_logic;
        Instruction_in : in  std_logic_vector(31 downto 0);
        PC_in          : in  std_logic_vector(31 downto 0);
        PC_Plus_2_1_in : in  std_logic_vector(31 downto 0);
@@ -25,9 +26,9 @@ End Entity IF_ID;
 
 Architecture arch_IF_ID Of IF_ID Is
   BEGIN
-       process(clk,rst)
+       process(clk,rst,FlushEn)
        begin
-            if rst='1' then
+            if (rst='1') or (FlushEn='1') then
                PC_out          <= (others =>'0');
                PC_Plus_2_1_out <= (others =>'0');
                OP_Code         <= (others =>'1');

@@ -4,6 +4,7 @@ USE IEEE.numeric_std.all;
 
 Entity ID_IE is
     port(rst,clk                :in std_logic;
+         FlushEn                :in std_logic;
                  -----in Port-----
          ALU_Enable_in          : in std_logic;
          CCR_Enable_in          : in std_logic;
@@ -29,6 +30,7 @@ Entity ID_IE is
 		     PC_in                  : in std_logic_vector(31 downto 0);
          PC_Plus_2_1_in         : in std_logic_vector(31 downto 0);
 		     Rscr1_Address_in       : in std_logic_vector(2  downto 0);
+		     Scr2_Address_in       : in std_logic_vector(2  downto 0);
          Rdst_Address_in        : in std_logic_vector(2  downto 0);
          Imm_EA_in              : in std_logic_vector(31 downto 0);
 		     Rscr1_Data_in          : in std_logic_vector(31 downto 0);
@@ -58,6 +60,7 @@ Entity ID_IE is
 		     PC_out                 : out std_logic_vector(31 downto 0);
          PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
 		     Rscr1_Address_out      : out std_logic_vector(2  downto 0);
+		     Rscr2_Address_out      : out std_logic_vector(2  downto 0);
          Rdst_Address_out       : out std_logic_vector(2  downto 0);
          Imm_EA_out             : out std_logic_vector(31 downto 0);
 		     Rscr1_Data_out         : out std_logic_vector(31 downto 0);
@@ -71,9 +74,9 @@ End Entity ID_IE;
 
 Architecture arch_ID_IE Of ID_IE Is
   BEGIN
-       process(clk,rst)
+       process(clk,rst,FlushEn)
        begin
-            if rst='1' then 
+            if (rst='1') or (FlushEn='1') then 
                ALU_Enable_out          <= '0';            
                CCR_Enable_out          <= '0';            
                Call_out                <= '0';            
@@ -98,6 +101,7 @@ Architecture arch_ID_IE Of ID_IE Is
 			         PC_out                  <= (others =>'0');
 			         PC_Plus_2_1_out         <= (others =>'0');
 			         Rscr1_Address_out       <= (others =>'0');
+			         Rscr2_Address_out       <= (others =>'0');
          			   Rdst_Address_out        <= (others =>'0');
                Imm_EA_out              <= (others =>'0');
                Rscr1_Data_out          <= (others =>'0');
@@ -129,6 +133,7 @@ Architecture arch_ID_IE Of ID_IE Is
 			         PC_out                  <= PC_in;                 
          			   PC_Plus_2_1_out         <= PC_Plus_2_1_in;         
          			   Rscr1_Address_out       <= Rscr1_Address_in;       
+         			   Rscr2_Address_out       <= Scr2_Address_in;       
          			   Rdst_Address_out        <= Rdst_Address_in;        
          			   Imm_EA_out              <= Imm_EA_in;       
          			   Rscr1_Data_out          <= Rscr1_Data_in;          
