@@ -12,7 +12,7 @@ Use ieee.std_logic_1164.all;
     begin 
 	       Process (Clk)
  	          begin 
- 		        if rising_edge(Clk) then -- and stall = '0'
+ 		        if falling_edge(Clk) then -- and stall = '0'
  		            PC_Out <= PC_In;
  		        end if; 
 	       end process;

@@ -5,6 +5,8 @@ USE IEEE.numeric_std.all;
 Entity ID_IE is
     port(rst,clk                :in std_logic;
                  -----in Port-----
+         ALU_Enable_in          : in std_logic;
+         CCR_Enable_in          : in std_logic;
          Call_in                : in std_logic;                    
          RET_in                 : in std_logic;                    
          POP_in                 : in std_logic;                    
@@ -22,17 +24,18 @@ Entity ID_IE is
          Selector_set_carry_in  : in std_logic_vector(1  downto 0); 
          Write_Enable_in        : in std_logic;                     
          Regsrc2_Control_in     : in std_logic;                     
-         Interrupt_in           : in std_logic;                     
-         Reset_in               : in std_logic;                     
+         Interrupt_in           : in std_logic;                              
          Swap_Enable_in         : in std_logic;
-		 PC_in                  : in std_logic_vector(31 downto 0);
+		     PC_in                  : in std_logic_vector(31 downto 0);
          PC_Plus_2_1_in         : in std_logic_vector(31 downto 0);
-		 Rscr1_Address_in       : in std_logic_vector(2  downto 0);
+		     Rscr1_Address_in       : in std_logic_vector(2  downto 0);
          Rdst_Address_in        : in std_logic_vector(2  downto 0);
-         Imm_EA_in              : in std_logic_vector(32 downto 0);
-		 Rscr1_Data_in          : in std_logic_vector(31 downto 0);
-		 Rscr2_Data_in          : in std_logic_vector(31 downto 0);
+         Imm_EA_in              : in std_logic_vector(31 downto 0);
+		     Rscr1_Data_in          : in std_logic_vector(31 downto 0);
+		     Rscr2_Data_in          : in std_logic_vector(31 downto 0);
                       -----out Port-----
+         ALU_Enable_out         : out std_logic;
+         CCR_Enable_out         : out std_logic; 
          Call_out               : out std_logic;                    
          RET_out                : out std_logic;                    
          POP_out                : out std_logic;                    
@@ -51,15 +54,16 @@ Entity ID_IE is
          Write_Enable_out       : out std_logic;                     
          Regsrc2_Control_out    : out std_logic;                     
          Interrupt_out          : out std_logic;                     
-         Reset_out              : out std_logic;                     
          Swap_Enable_out        : out std_logic;
-		 PC_out                 : out std_logic_vector(31 downto 0);
+		     PC_out                 : out std_logic_vector(31 downto 0);
          PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
-		 Rscr1_Address_out      : out std_logic_vector(2  downto 0);
+		     Rscr1_Address_out      : out std_logic_vector(2  downto 0);
          Rdst_Address_out       : out std_logic_vector(2  downto 0);
-         Imm_EA_out             : out std_logic_vector(32 downto 0);
-		 Rscr1_Data_out         : out std_logic_vector(31 downto 0);
-		 Rscr2_Data_out         : out std_logic_vector(31 downto 0)
+         Imm_EA_out             : out std_logic_vector(31 downto 0);
+		     Rscr1_Data_out         : out std_logic_vector(31 downto 0);
+		     Rscr2_Data_out         : out std_logic_vector(31 downto 0);
+		     IN_Port_IN             : in std_logic_vector(31 downto 0);
+	       IN_Port_out            : out std_logic_vector(31 downto 0)
 		 
         );
 End Entity ID_IE;
@@ -69,7 +73,9 @@ Architecture arch_ID_IE Of ID_IE Is
   BEGIN
        process(clk,rst)
        begin
-            if rst='1' then        
+            if rst='1' then 
+               ALU_Enable_out          <= '0';            
+               CCR_Enable_out          <= '0';            
                Call_out                <= '0';            
                RET_out                 <= '0';
                POP_out                 <= '0';
@@ -88,17 +94,19 @@ Architecture arch_ID_IE Of ID_IE Is
                Write_Enable_out        <= '0';
                Regsrc2_Control_out     <= '0';
                Interrupt_out           <= '0';
-               Reset_out               <= '0';
                Swap_Enable_out         <= '0';
-			   PC_out                  <= (others =>'0');
-			   PC_Plus_2_1_out         <= (others =>'0');
-			   Rscr1_Address_out       <= (others =>'0');
-			   Rdst_Address_out        <= (others =>'0');
+			         PC_out                  <= (others =>'0');
+			         PC_Plus_2_1_out         <= (others =>'0');
+			         Rscr1_Address_out       <= (others =>'0');
+         			   Rdst_Address_out        <= (others =>'0');
                Imm_EA_out              <= (others =>'0');
                Rscr1_Data_out          <= (others =>'0');
                Rscr2_Data_out          <= (others =>'0');
-
-            elsif rising_edge (clk) then                   
+			         IN_Port_out             <= (others =>'0');
+			   
+            elsif falling_edge (clk) then   
+               ALU_Enable_out          <= ALU_Enable_in;            
+               CCR_Enable_out          <= CCR_Enable_in;            
                Call_out                <= Call_in;            
                RET_out                 <= RET_in;            
                POP_out                 <= POP_in;            
@@ -116,18 +124,18 @@ Architecture arch_ID_IE Of ID_IE Is
                Selector_set_carry_out  <= Selector_set_carry_in;
                Write_Enable_out        <= Write_Enable_in;
                Regsrc2_Control_out     <= Regsrc2_Control_in;
-               Interrupt_out           <= Interrupt_in;
-               Reset_out               <= Reset_in;
+               Interrupt_out           <= Interrupt_in;              
                Swap_Enable_out         <= Swap_Enable_in;
-			   PC_out                  <= PC_in;                 
-			   PC_Plus_2_1_out         <= PC_Plus_2_1_in;         
-			   Rscr1_Address_out       <= Rscr1_Address_in;       
-			   Rdst_Address_out        <= Rdst_Address_in;        
-			   Imm_EA_out              <= Imm_EA_in;       
-			   Rscr1_Data_out          <= Rscr1_Data_in;          
-			   Rscr2_Data_out          <= Rscr2_Data_in;          
+			         PC_out                  <= PC_in;                 
+         			   PC_Plus_2_1_out         <= PC_Plus_2_1_in;         
+         			   Rscr1_Address_out       <= Rscr1_Address_in;       
+         			   Rdst_Address_out        <= Rdst_Address_in;        
+         			   Imm_EA_out              <= Imm_EA_in;       
+         			   Rscr1_Data_out          <= Rscr1_Data_in;          
+         			   Rscr2_Data_out          <= Rscr2_Data_in; 
+			         IN_Port_out             <= IN_Port_IN;
 			   
             end if;
           end process;
 														   
-End arch_ID_IE;    
+End arch_ID_IE;      
