@@ -58,16 +58,17 @@ compD: partD PORT MAP (SEL0,SEL1,Cin,Cout_D,A,B,F_D);
 	ELSE F_B WHEN SEL3='0' AND SEL2='1' AND Enable='1'
 	ELSE F_C WHEN SEL3='1' AND SEL2='0' AND Enable='1'
 	ELSE F_D WHEN SEL3='1' AND SEL2='1' AND Enable='1';
-	
+ 
+  F<=RESULT;	
 
-  CF<= 	Cout_A WHEN SEL3='0' AND SEL2='0' AND Enable='1'
+  CF<= 	Cout_A WHEN SEL3='0' AND SEL2='0' AND Enable='0'
 	ELSE Cout_B WHEN SEL3='0' AND SEL2='1' AND Enable='1'
 	ELSE Cout_C WHEN SEL3='1' AND SEL2='0' AND Enable='1'
 	ELSE Cout_D WHEN SEL3='1' AND SEL2='1' AND Enable='1';
 
-	NF<= Nin WHEN SEL3='1' AND SEL2='1' AND Enable='1'
+	NF<= Nin WHEN SEL3='1' AND SEL2='1' AND Enable='0'
 	ELSE RESULT (31) WHEN Enable='1';
-	ZF<= Zin WHEN SEL3='1' AND SEL2='1' AND Enable='1'
+	ZF<= Zin WHEN SEL3='1' AND SEL2='1' AND Enable='0'
 	ELSE '1' WHEN RESULT(31 DOWNTO 0) = "00000000000000000000000000000000" AND Enable='1'
 	ELSE '0' WHEN Enable='1';
 END archALU;
