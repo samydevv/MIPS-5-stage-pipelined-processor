@@ -1,3 +1,4 @@
+vsim -gui work.microprocessor
 mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\OneOperand_InstructionMemory.mem} /microprocessor/Instruction_Memory/ram
 mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\OneOperand_DataMemory.mem} /microprocessor/Data_Memory/dataMemory
 add wave -position insertpoint  \
