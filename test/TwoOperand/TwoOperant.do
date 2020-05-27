@@ -29,12 +29,17 @@ sim:/microprocessor/R4 \
 sim:/microprocessor/R5 \
 sim:/microprocessor/R6 \
 sim:/microprocessor/R7 \
-sim:/microprocessor/Flags_out_CCR \
+sim:/microprocessor/Sign_Extend_Enable \
+sim:/microprocessor/Imm_EA \
+sim:/microprocessor/IMM_EA_out \
+sim:/microprocessor/Scrs_A \
+sim:/microprocessor/Scrs_B \
 sim:/microprocessor/ALU_Result \
+sim:/microprocessor/Flags_out_CCR \
 sim:/microprocessor/CF_ALU_OUT \
 sim:/microprocessor/NF_ALU_OUT \
 sim:/microprocessor/ZF_ALU_OUT \
-sim:/microprocessor/CF_MUX_OUT
+sim:/microprocessor/CF_MUX_OUT 
 force -freeze sim:/microprocessor/rst 1 0
 force -freeze sim:/microprocessor/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/microprocessor/Interrupt 0 0
@@ -58,3 +63,5 @@ run
 run
 run
 run
+run
+

@@ -15,7 +15,7 @@ Architecture arch_SignExtend of SignExtend is
   Begin
        rIMM <= "0000000000000000"; 
        rEA <= "000000000000";
-    process(Enable)
+    process(Enable,IMM_EA_in)
       begin
         if (Enable = "00") then
                IMM_EA_out <= std_logic_vector(resize(signed(IMM_EA_in),IMM_EA_out'length));

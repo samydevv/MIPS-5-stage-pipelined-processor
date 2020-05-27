@@ -203,7 +203,9 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
 	     	   Rscr1_Data_out         : out std_logic_vector(31 downto 0);
 	     	   Rscr2_Data_out         : out std_logic_vector(31 downto 0);
 	     	   IN_Port_IN             : in std_logic_vector(31 downto 0);
-	         IN_Port_out            : out std_logic_vector(31 downto 0)
+	         IN_Port_out            : out std_logic_vector(31 downto 0);
+	         OutputPortEnable_IN    : in std_logic;
+	         OutputPortEnable_out   : out std_logic
           );
      End COMPONENT;
   ----------------------------------------------------  
@@ -495,7 +497,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   SIGNAL   Rsrc1_Data_IDIE           : std_logic_vector(31 downto 0); 
   SIGNAL   Rsrc2_Data_IDIE           : std_logic_vector(31 downto 0); 
   SIGNAL   IN_Port_IDIE              : std_logic_vector(31 downto 0);
-
+  SIGNAL   OutputPortEnable_IDIE     : std_logic;
+  
   ----***MUX 2 by 1 32bit Srcs 2 destination of ALU***----  
   SIGNAL  Src2_Data_ALU  : std_logic_vector(31 downto 0); 
 
@@ -645,13 +648,13 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   Sign_Extend : SignExtend port map (Sign_Extend_Enable,Imm_EA,IMM_EA_out);    
   
   ----***Output Register***----
-  OutputRegister : Output_Register port map (rst,clk,Output_Enable,Rsrc1_Data,OUTPort);
+  OutputRegister : Output_Register port map (rst,clk,OutputPortEnable_IDIE,Rsrc1_Data_IDIE,OUTPort);
   
   ----***ID_IE***----
   IDIE : ID_IE port map (rst,clk,Jump_Selector,ALU_Enable,CCR_Enable,Call,RET,POP,PUSH,RTI,Stack_operation,JMP,JMP_ZF,JMP_CF,JMP_NF,Reg_Dst_selector,WB,MEM,EX,Selector_set_carry,Write_Enable,Regsrc2_Control,Interrupt_out,Swap_Enable,
                          PC_OUT_IFID,PC_Next_IFID,Rscr1_Address,Scr2_Address,Rdst_Address,IMM_EA_out,Rsrc1_Data,Rsrc2_Data,ALU_Enable_IDIE,CCR_Enable_IDIE,Call_IDIE,RET_IDIE,POP_IDIE,PUSH_IDIE,RTI_IDIE,Stack_operation_IDIE,JMP_IDIE,
                          JMP_ZF_IDIE,JMP_CF_IDIE,JMP_NF_IDIE,Reg_Dst_selector_IDIE,WB_IDIE,MEM_IDIE,EX_IDIE,Selector_set_carry_IDIE,Write_Enable_IDIE,Regsrc2_Control_IDIE,Interrupt_out_IDIE,
-                         Swap_Enable_IDIE,PC_OUT_IDIE,PC_Next_IDIE,Rscr1_AddressIDIE,Rscr2_AddressIDIE,Rdst_AddressIDIE,IMM_EA_IDIE,Rsrc1_Data_IDIE,Rsrc2_Data_IDIE,IN_Port_IFID,IN_Port_IDIE);
+                         Swap_Enable_IDIE,PC_OUT_IDIE,PC_Next_IDIE,Rscr1_AddressIDIE,Rscr2_AddressIDIE,Rdst_AddressIDIE,IMM_EA_IDIE,Rsrc1_Data_IDIE,Rsrc2_Data_IDIE,IN_Port_IFID,IN_Port_IDIE,Output_Enable,OutputPortEnable_IDIE);
 
   ----***Forward Uint***----
   Forward_Uint :  FU port map (Rscr1_AddressIDIE,Rscr2_AddressIDIE,Reg_WB_Add11_IEMEM,Reg_WB_Add12_IEMEM,Reg_WB_Addr1,Reg_WB_Addr2,SEL_MUX_A,SEL_MUX_B,Swap_Enable_IEMEM,Write_Enable_IEMEM,Write_Enable_WB,Swap_Enable_WB);
