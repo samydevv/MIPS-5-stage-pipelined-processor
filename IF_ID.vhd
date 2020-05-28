@@ -6,6 +6,7 @@ Entity IF_ID is
     port(
        rst,clk        :in std_logic;
        FlushEn        :in std_logic;
+       StallEn        :in std_logic;
        Instruction_in : in  std_logic_vector(31 downto 0);
        PC_in          : in  std_logic_vector(31 downto 0);
        PC_Plus_2_1_in : in  std_logic_vector(31 downto 0);
@@ -38,8 +39,9 @@ Architecture arch_IF_ID Of IF_ID Is
                Rdst_Address    <= (others =>'0');
                Imm_EA          <= (others =>'0');
                IN_Port_out     <= (others =>'0');
-			   
+			           
             elsif falling_edge (clk) then    
+             if (StallEn='0') then
                PC_out         <= PC_in;
                PC_Plus_2_1_out <= PC_Plus_2_1_in; 
                OP_Code        <= Instruction_in(31 downto 30);
@@ -48,7 +50,8 @@ Architecture arch_IF_ID Of IF_ID Is
                Rscr2_Address  <= Instruction_in(20 downto 18);
                Rdst_Address   <= Instruction_in(26 downto 24);
                Imm_EA         <= Instruction_in(20 downto  1);  
-			         IN_Port_out    <= IN_Port_IN;
+			         IN_Port_out    <= IN_Port_IN; 
+			        end if;
             end if;
           end process;
                  

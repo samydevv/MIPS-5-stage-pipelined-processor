@@ -1,6 +1,6 @@
 vsim -gui work.microprocessor
-mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\TwoOperand_InstructionMemory.mem} /microprocessor/Instruction_Memory/ram
-mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\TwoOperand_DataMemory.mem} /microprocessor/Data_Memory/dataMemory
+mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\OneOperand_InstructionMemory.mem} /microprocessor/Instruction_Memory/ram
+mem load -i {D:\CUFE\6th_Semester\CMPN301_Computer Architecture\New 2020\Project\-Designing-and-implementing-a-simple-5-stage-pipelined-processor\test\OneOperand_DataMemory.mem} /microprocessor/Data_Memory/dataMemory
 add wave -position insertpoint  \
 sim:/microprocessor/rst \
 sim:/microprocessor/clk \
@@ -29,19 +29,12 @@ sim:/microprocessor/R4 \
 sim:/microprocessor/R5 \
 sim:/microprocessor/R6 \
 sim:/microprocessor/R7 \
-sim:/microprocessor/Sign_Extend_Enable \
-sim:/microprocessor/Imm_EA \
-sim:/microprocessor/IMM_EA_out \
-sim:/microprocessor/Scrs_A \
-sim:/microprocessor/Scrs_B \
-sim:/microprocessor/ALU_Result \
 sim:/microprocessor/Flags_out_CCR \
+sim:/microprocessor/ALU_Result \
 sim:/microprocessor/CF_ALU_OUT \
 sim:/microprocessor/NF_ALU_OUT \
 sim:/microprocessor/ZF_ALU_OUT \
-sim:/microprocessor/CF_MUX_OUT \
-sim:/microprocessor/SEL_MUX_A \
-sim:/microprocessor/SEL_MUX_B 
+sim:/microprocessor/CF_MUX_OUT
 force -freeze sim:/microprocessor/rst 1 0
 force -freeze sim:/microprocessor/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/microprocessor/Interrupt 0 0
@@ -49,14 +42,12 @@ force -freeze sim:/microprocessor/INPort 32'h5 0
 run
 force -freeze sim:/microprocessor/rst 0 0
 run
-force -freeze sim:/microprocessor/INPort 32'h19 0
-run
-force -freeze sim:/microprocessor/INPort 32'hFFFD 0
-run
-force -freeze sim:/microprocessor/INPort 32'hF320 0
 run
 run
 run
+run
+run
+force -freeze sim:/microprocessor/INPort 32'h10 0
 run
 run
 run
@@ -64,7 +55,3 @@ run
 run
 run
 run
-run
-run
-run
-

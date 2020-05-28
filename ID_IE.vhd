@@ -68,7 +68,9 @@ Entity ID_IE is
 		     IN_Port_IN             : in std_logic_vector(31 downto 0);
 	       IN_Port_out            : out std_logic_vector(31 downto 0);
 	       OutputPortEnable_IN    : in std_logic;
-	       OutputPortEnable_out   : out std_logic
+	       OutputPortEnable_out   : out std_logic;
+	       InputPortEnable_IN     : in std_logic;
+	       InputPortEnable_out    : out std_logic
 		 
         );
 End Entity ID_IE;
@@ -110,6 +112,7 @@ Architecture arch_ID_IE Of ID_IE Is
                Rscr2_Data_out          <= (others =>'0');
 			         IN_Port_out             <= (others =>'0');
 			         OutputPortEnable_out    <= '0';
+			         InputPortEnable_out     <= '0';
 			         
             elsif falling_edge (clk) then   
                ALU_Enable_out          <= ALU_Enable_in;            
@@ -143,7 +146,8 @@ Architecture arch_ID_IE Of ID_IE Is
          			   Rscr2_Data_out          <= Rscr2_Data_in; 
 			         IN_Port_out             <= IN_Port_IN;
 			         OutputPortEnable_out    <= OutputPortEnable_IN;
-			   
+			         InputPortEnable_out    <= InputPortEnable_IN;
+			         
             end if;
           end process;
 														   

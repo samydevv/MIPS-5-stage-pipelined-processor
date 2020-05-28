@@ -31,7 +31,7 @@ Entity Control is
        Regsrc2_Control      : out std_logic;                     --temp(5)
        Sign_Extend_Enable   : out std_logic_vector(1  downto 0); --temp(4  downto  3)   
        Interrupt_out        : out std_logic;                     --temp(2) 
-       --Reset_out            : out std_logic;                     --temp(1)
+       Input_Enable         : out std_logic;                     --temp(1)
        Swap_Enable          : out std_logic                      --temp(0)
       );
 End Entity Control;
@@ -46,7 +46,7 @@ Architecture arch_Control Of Control Is
 																														 --
             else   "0010000000000000000000000000000" when OP_Code = "11" and  Function_Code ="011" and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "0000000000000010000000001000000" when OP_Code = "11" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "0000000000000000000000001000010" when OP_Code = "11" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
             else   "0000001010000000010000000000000" when OP_Code = "11" and  Function_Code ="101" and Interrupt_in ='0' --and Reset_in = '0'            
 																														 --
@@ -125,7 +125,7 @@ Architecture arch_Control Of Control Is
        Regsrc2_Control      <= temp(5);
        Sign_Extend_Enable   <= temp(4  downto  3);
        Interrupt_out        <= temp(2);
-       --Reset_out            <= temp(1);
+       Input_Enable         <= temp(1);
        Swap_Enable          <= temp(0);                          
 End arch_Control;    
 

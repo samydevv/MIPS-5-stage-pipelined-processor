@@ -21,9 +21,9 @@ Entity MEM_WB is
 		 Reg_WB_address1_out    : out std_logic_vector(2 downto 0);
 		 Result_ALU_out         : out std_logic_vector(31 downto 0);
 		 Reg_WB_address2_out    : out std_logic_vector(2 downto 0);
-		 Reg_WB_Value_2         : out std_logic_vector(31 downto 0);
-		 IN_Port_IN             : in std_logic_vector(31 downto 0);
-	   IN_Port_out            : out std_logic_vector(31 downto 0)
+		 Reg_WB_Value_2         : out std_logic_vector(31 downto 0)
+	--	 IN_Port_IN             : in std_logic_vector(31 downto 0);
+	--  IN_Port_out            : out std_logic_vector(31 downto 0)
         );
 End Entity MEM_WB;
 
@@ -41,7 +41,7 @@ Architecture arch_MEM_WB Of MEM_WB Is
 			         	Result_ALU_out          <=   (others =>'0');  
 			         	Reg_WB_address2_out     <=   (others =>'0');  
 			         	Reg_WB_Value_2          <=   (others =>'0');  
-						    IN_Port_out             <= (others =>'0');
+					--	    IN_Port_out             <= (others =>'0');
 				
             elsif falling_edge (clk) then                                  
 		               WB_out               <=  WB_in;                
@@ -52,7 +52,7 @@ Architecture arch_MEM_WB Of MEM_WB Is
 				           Result_ALU_out       <=  Result_ALU_in;     
 				           Reg_WB_address2_out  <=  Rscr1_Address_in;  
 				           Reg_WB_Value_2       <=  Rsrc2_Value_in; 
-						       IN_Port_out          <= IN_Port_IN;						   
+						  --     IN_Port_out          <= IN_Port_IN;						   
             end if;
           end process;                    
   

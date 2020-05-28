@@ -14,15 +14,15 @@ END FU;
 
 ARCHITECTURE archFU OF FU IS
 	BEGIN
-		SELA<= "001" WHEN Rsrc1=MemWbRdst1 AND MemWbWbEn='1'
-		ELSE "010" WHEN Rsrc1=ExMemRdst1 AND ExMemWbEn='1'
-		ELSE "011" WHEN Rsrc1=MemWbRdst2 AND MemWbSwapEn='1'	
-		ELSE "100" WHEN Rsrc1=ExMemRdst2 AND ExMemSwapEn='1'	
+		SELA<= "010" WHEN Rsrc1=ExMemRdst1 AND ExMemWbEn='1'
+		ELSE  "100" WHEN Rsrc1=ExMemRdst2 AND ExMemSwapEn='1'
+		ELSE  "001" WHEN Rsrc1=MemWbRdst1 AND MemWbWbEn='1'
+		ELSE  "011" WHEN Rsrc1=MemWbRdst2 AND MemWbSwapEn='1'
 		ELSE "000";
 		
-		SELB<= "001" WHEN Rsrc2=MemWbRdst1 AND MemWbWbEn='1'
-		ELSE "010" WHEN Rsrc2=ExMemRdst1 AND ExMemWbEn='1'
-		ELSE "011" WHEN Rsrc2=MemWbRdst2 AND MemWbSwapEn='1'	
+		SELB<= "010" WHEN Rsrc2=ExMemRdst1 AND ExMemWbEn='1'
 		ELSE "100" WHEN Rsrc2=ExMemRdst2 AND ExMemSwapEn='1'	
-		ELSE "000";
+		ELSE "001" WHEN Rsrc2=MemWbRdst1 AND MemWbWbEn='1'	
+		ELSE "011" WHEN Rsrc2=MemWbRdst2 AND MemWbSwapEn='1'
+		ELSE "000";		
 END archFU;
