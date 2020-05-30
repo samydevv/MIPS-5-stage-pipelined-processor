@@ -796,7 +796,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   Condition_Code_Register : CCR port map (rst,clk,CF_MUX_OUT,NF_ALU_OUT,ZF_ALU_OUT,Reset_CF,Reset_ZF,Reset_NF,RTI_IDIE,Flags_Restor,Flags_out_CCR,CCR_Enable_IDIE);
   
   ----***Preserved Condition Code Register***----    
-  Preserved_Condition_Code_Register :  Preserved_CCR port map (rst,clk,Interrupt_out_IDIE,RTI_IDIE,Flags_out_CCR,Flags_Restor);
+  Preserved_Condition_Code_Register :  Preserved_CCR port map (rst,clk,Interrupt_out_IEMEM,RTI_IEMEM,Flags_out_CCR,Flags_Restor);
   
   ----*** MUX Register Writeback Address 1***---- 
   Register_WB_Address1 : Mux2By1_3bits port map (Rdst_AddressIDIE,Rscr1_AddressIDIE,Reg_Dst_selector_IDIE,Register_WB_Add1);
