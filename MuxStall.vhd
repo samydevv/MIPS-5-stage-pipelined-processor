@@ -50,8 +50,10 @@ use IEEE.STD_LOGIC_1164.ALL;
          Regsrc2_Control_out      : out std_logic;                     
          Sign_Extend_Enable_out   : out std_logic_vector(1  downto 0); 
          Interrupt_out_out        : out std_logic;                     
-         Input_Enable_out          : out std_logic;                     
-         Swap_Enable_out          : out std_logic;                      
+         Input_Enable_out         : out std_logic;                     
+         Swap_Enable_out          : out std_logic;   
+          LDD_Enable_in           : in std_logic;   
+         LDD_Enable_out           : out std_logic;       
          Selector                 :in  std_logic
          );
   End MuxStall;
@@ -83,6 +85,7 @@ Architecture arch_MuxStall of MuxStall is
          Interrupt_out_out        <='0' WHEN Selector = '1' ELSE Interrupt_out_in;
          Input_Enable_out          <='0' WHEN Selector = '1' ELSE Input_Enable_in;          
          Swap_Enable_out          <='0' WHEN Selector = '1' ELSE Swap_Enable_in;
+         LDD_Enable_out           <='0' WHEN Selector = '1' ELSE LDD_Enable_in;
  End arch_MuxStall;
 
 

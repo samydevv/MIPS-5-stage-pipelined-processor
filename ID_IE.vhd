@@ -5,7 +5,7 @@ USE IEEE.numeric_std.all;
 Entity ID_IE is
     port(rst,clk                :in std_logic;
          FlushEn                :in std_logic;
-                 -----in Port-----
+                 -----in Port-----         
          ALU_Enable_in          : in std_logic;
          CCR_Enable_in          : in std_logic;
          Call_in                : in std_logic;                    
@@ -70,7 +70,9 @@ Entity ID_IE is
 	       OutputPortEnable_IN    : in std_logic;
 	       OutputPortEnable_out   : out std_logic;
 	       InputPortEnable_IN     : in std_logic;
-	       InputPortEnable_out    : out std_logic
+	       InputPortEnable_out    : out std_logic;
+         LDD_Enable_in          : in std_logic;
+         LDD_Enable_out         : out std_logic
 		 
         );
 End Entity ID_IE;
@@ -113,6 +115,7 @@ Architecture arch_ID_IE Of ID_IE Is
 			         IN_Port_out             <= (others =>'0');
 			         OutputPortEnable_out    <= '0';
 			         InputPortEnable_out     <= '0';
+			         LDD_Enable_out          <= '0';
 			         
             elsif falling_edge (clk) then   
                ALU_Enable_out          <= ALU_Enable_in;            
@@ -147,6 +150,7 @@ Architecture arch_ID_IE Of ID_IE Is
 			         IN_Port_out             <= IN_Port_IN;
 			         OutputPortEnable_out    <= OutputPortEnable_IN;
 			         InputPortEnable_out    <= InputPortEnable_IN;
+			         LDD_Enable_out          <= LDD_Enable_in;            
 			         
             end if;
           end process;
