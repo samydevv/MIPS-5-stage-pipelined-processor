@@ -9,6 +9,8 @@ Entity Control is
        Interrupt_in         : in std_logic;
        --Reset_in             : in std_logic;
              ------output of control uint---------
+       UseScrs1             : out std_logic;                     --temp(33)  
+       UseScrs2             : out std_logic;                     --temp(32)  
        LDD                  : out std_logic;                     --temp(31)  
        ALU_Enable           : out std_logic;                     --temp(30)  
        CCR_Enable           : out std_logic;                     --temp(29)
@@ -39,70 +41,71 @@ End Entity Control;
 
 
 Architecture arch_Control Of Control Is
-  signal temp : std_logic_vector(31 downto 0); 
+  signal temp : std_logic_vector(33 downto 0); 
   BEGIN
-       temp <=     "00100000000000000000000010000000" when OP_Code = "11" and  Function_Code ="001" and Interrupt_in ='0' --and Reset_in = '0'
+       temp <=     "0000100000000000000000000010000000" when OP_Code = "11" and  Function_Code ="001" --and Interrupt_in ='0' --and Reset_in = '0'
             
-            else   "00100000000000000000000100000000" when OP_Code = "11" and  Function_Code ="010" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "0000100000000000000000000100000000" when OP_Code = "11" and  Function_Code ="010" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "00010000000000000000000000000000" when OP_Code = "11" and  Function_Code ="011" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "1000010000000000000000000000000000" when OP_Code = "11" and  Function_Code ="011" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "00000000000000000000000001000010" when OP_Code = "11" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "0000000000000000000000000001000010" when OP_Code = "11" and  Function_Code ="100" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "00000001010000000010000000000000" when OP_Code = "11" and  Function_Code ="101" and Interrupt_in ='0' --and Reset_in = '0'            
+            else   "1000000001010000000010000000000000" when OP_Code = "11" and  Function_Code ="101" --and Interrupt_in ='0' --and Reset_in = '0'            
 																														 --
-            else   "00000010010000001100000001000000" when OP_Code = "11" and  Function_Code ="110" and Interrupt_in ='0' --and Reset_in = '0'                        
+            else   "0000000010010000001100000001000000" when OP_Code = "11" and  Function_Code ="110" --and Interrupt_in ='0' --and Reset_in = '0'                        
 																														 --
-            else   "01000000000000000001100001000001" when OP_Code = "10" and  Function_Code ="000" and Interrupt_in ='0' --and Reset_in = '0'                                      
+            else   "1001000000000000000001100001000001" when OP_Code = "10" and  Function_Code ="000" --and Interrupt_in ='0' --and Reset_in = '0'                                      
 																														 --
-            else   "01100000000000000000000001000000" when OP_Code = "10" and  Function_Code ="001" and Interrupt_in ='0' --and Reset_in = '0'                                                  
+            else   "1101100000000000000000000001000000" when OP_Code = "10" and  Function_Code ="001" --and Interrupt_in ='0' --and Reset_in = '0'                                                  
 																														 --
-            else   "01100000000000000000001001000000" when OP_Code = "10" and  Function_Code ="010" and Interrupt_in ='0' --and Reset_in = '0'                                                  
+            else   "1101100000000000000000001001000000" when OP_Code = "10" and  Function_Code ="010" --and Interrupt_in ='0' --and Reset_in = '0'                                                  
 																														 --
-            else   "01100000000000000000100001000000" when OP_Code = "10" and  Function_Code ="011" and Interrupt_in ='0' --and Reset_in = '0'                                                             
+            else   "1101100000000000000000100001000000" when OP_Code = "10" and  Function_Code ="011" --and Interrupt_in ='0' --and Reset_in = '0'                                                             
 																														 --
-            else   "01100000000000000000101001000000" when OP_Code = "10" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'              
+            else   "1101100000000000000000101001000000" when OP_Code = "10" and  Function_Code ="100" --and Interrupt_in ='0' --and Reset_in = '0'              
 																														 --
-            else   "01100000000000100000110001000000" when OP_Code = "10" and  Function_Code ="101" and Interrupt_in ='0' --and Reset_in = '0'            
+            else   "1001100000000000100000110001000000" when OP_Code = "10" and  Function_Code ="101" --and Interrupt_in ='0' --and Reset_in = '0'            
 																														 --
-            else   "01100000000000100000010001000000" when OP_Code = "10" and  Function_Code ="110" and Interrupt_in ='0' --and Reset_in = '0'                           
+            else   "1001100000000000100000010001000000" when OP_Code = "10" and  Function_Code ="110" --and Interrupt_in ='0' --and Reset_in = '0'                           
 																														 --
-            else   "01100000000000100000011001000000" when OP_Code = "10" and  Function_Code ="111" and Interrupt_in ='0' --and Reset_in = '0'                
+            else   "1001100000000000100000011001000000" when OP_Code = "10" and  Function_Code ="111" --and Interrupt_in ='0' --and Reset_in = '0'                
 																														 --
-            else   "00100000000100000000000000000000" when OP_Code = "01" and  Function_Code ="000" and Interrupt_in ='0' --and Reset_in = '0'              
+            else   "1000100000000100000000000000000000" when OP_Code = "01" and  Function_Code ="000" --and Interrupt_in ='0' --and Reset_in = '0'              
 																														 --
-            else   "00100000000001000000000000000000" when OP_Code = "01" and  Function_Code ="001" and Interrupt_in ='0' --and Reset_in = '0'                            
+            else   "1000100000000001000000000000000000" when OP_Code = "01" and  Function_Code ="001" --and Interrupt_in ='0' --and Reset_in = '0'                            
 																														 --
-            else   "00100000000010000000000000000000" when OP_Code = "01" and  Function_Code ="010" and Interrupt_in ='0' --and Reset_in = '0'                          
+            else   "1000100000000010000000000000000000" when OP_Code = "01" and  Function_Code ="010" --and Interrupt_in ='0' --and Reset_in = '0'                          
 																														 --
-            else   "00000000001000000000000000000000" when OP_Code = "01" and  Function_Code ="011" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "1000000000001000000000000000000000" when OP_Code = "01" and  Function_Code ="011" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "00001000010000000010000000000000" when OP_Code = "01" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'                          
+            else   "1000001000010000000010000000000000" when OP_Code = "01" and  Function_Code ="100" --and Interrupt_in ='0' --and Reset_in = '0'                          
 																														 --
-            else   "00000100010000000100000000000000" when OP_Code = "01" and  Function_Code ="101" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "0000000100010000000100000000000000" when OP_Code = "01" and  Function_Code ="101" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "00100000110000000100000000000000" when OP_Code = "01" and  Function_Code ="110" and Interrupt_in ='0' --and Reset_in = '0'
+            else   "0000100000110000000100000000000000" when OP_Code = "01" and  Function_Code ="110" --and Interrupt_in ='0' --and Reset_in = '0'
 																														 --
-            else   "01100000000000000000000001101000" when OP_Code = "00" and  Function_Code ="000" and Interrupt_in ='0' --and Reset_in = '0'  
+            else   "1001100000000000000000000001101000" when OP_Code = "00" and  Function_Code ="000" --and Interrupt_in ='0' --and Reset_in = '0'  
 																														 --
-            else   "01100000000000100001000001101000" when OP_Code = "00" and  Function_Code ="001" and Interrupt_in ='0' --and Reset_in = '0'   
+            else   "1001100000000000100001000001101000" when OP_Code = "00" and  Function_Code ="001" --and Interrupt_in ='0' --and Reset_in = '0'   
 																														 --
-            else   "01100000000000100001001001101000" when OP_Code = "00" and  Function_Code ="010" and Interrupt_in ='0' --and Reset_in = '0'   
+            else   "1001100000000000100001001001101000" when OP_Code = "00" and  Function_Code ="010" --and Interrupt_in ='0' --and Reset_in = '0'   
 																														 --
-            else   "11000000000000000001101001110000" when OP_Code = "00" and  Function_Code ="011" and Interrupt_in ='0' --and Reset_in = '0'   
+            else   "0011000000000000000001101001110000" when OP_Code = "00" and  Function_Code ="011" --and Interrupt_in ='0' --and Reset_in = '0'   
 																														 --
-            else   "01000000000000001101101001111000" when OP_Code = "00" and  Function_Code ="100" and Interrupt_in ='0' --and Reset_in = '0'   
+            else   "0001000000000000001101101001111000" when OP_Code = "00" and  Function_Code ="100" --and Interrupt_in ='0' --and Reset_in = '0'   
 																														 --
-            else   "01000000000000000011101000111000" when OP_Code = "00" and  Function_Code ="101" and Interrupt_in ='0' --and Reset_in = '0'   
+            else   "1001000000000000000011101000111000" when OP_Code = "00" and  Function_Code ="101" --and Interrupt_in ='0' --and Reset_in = '0'   
             
             --else   "00000000000000000000000000010" when Interrupt_in ='0' and Reset_in = '1'               
             
-            else   "00000000010000000010000000000100" when Interrupt_in ='1' --and Reset_in = '0'               
+            --else   "0000000000010000000010000000000100" when Interrupt_in ='1' --and Reset_in = '0'               
             
-            else   "00000000000000000000000000000000";  
+            else   "0000000000000000000000000000000000";  
             
             
-            
+       UseScrs1             <= temp(33);  
+       UseScrs2             <= temp(32);       
        LDD                  <= temp(31);  
        ALU_Enable           <= temp(30);  
        CCR_Enable           <= temp(29);     
@@ -112,20 +115,20 @@ Architecture arch_Control Of Control Is
        POP                  <= temp(25);                     
        PUSH                 <= temp(24);
        RTI                  <= temp(23);
-       Stack_operation      <= temp(22);
+       Stack_operation      <= '1' WHEN Interrupt_in ='1' ELSE temp(22);
        JMP                  <= temp(21);
        JMP_ZF               <= temp(20);
        JMP_CF               <= temp(19);
        JMP_NF               <= temp(18);
        Reg_Dst_selector     <= temp(17);
        WB                   <= temp(16 downto 15);
-       MEM                  <= temp(14 downto 13);
+       MEM                  <= "01" WHEN Interrupt_in ='1' ELSE temp(14 downto 13);
        EX                   <= temp(12 downto  9);
        Selector_set_carry   <= temp(8  downto  7);
        Write_Enable         <= temp(6);
        Regsrc2_Control      <= temp(5);
        Sign_Extend_Enable   <= temp(4  downto  3);
-       Interrupt_out        <= temp(2);
+       Interrupt_out        <= '1' WHEN Interrupt_in ='1' ELSE temp(2);
        Input_Enable         <= temp(1);
        Swap_Enable          <= temp(0);                          
 End arch_Control;    

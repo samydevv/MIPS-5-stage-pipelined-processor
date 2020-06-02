@@ -19,7 +19,7 @@ sim:/microprocessor/R6 \
 sim:/microprocessor/R7 \
 sim:/microprocessor/ALU_Result \
 sim:/microprocessor/Flags_out_CCR \
-sim:/microprocessor/Jump_Selector 
+sim:/microprocessor/SP 
 force -freeze sim:/microprocessor/rst 1 0
 force -freeze sim:/microprocessor/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/microprocessor/Interrupt 0 0

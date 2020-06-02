@@ -9,6 +9,18 @@ sim:/microprocessor/INPort \
 sim:/microprocessor/OUTPort \
 sim:/microprocessor/PC_IN \
 sim:/microprocessor/PC_OUT \
+sim:/microprocessor/Instruction \
+sim:/microprocessor/OP_Code \
+sim:/microprocessor/Function_Code \
+sim:/microprocessor/Rscr1_Address \
+sim:/microprocessor/Rscr2_Address \
+sim:/microprocessor/Rdst_Address \
+sim:/microprocessor/Rsrc1_Data \
+sim:/microprocessor/Rsrc2_Data \
+sim:/microprocessor/Reg_WB_Data1 \
+sim:/microprocessor/Reg_WB_Data2 \
+sim:/microprocessor/Reg_WB_Addr1 \
+sim:/microprocessor/Reg_WB_Addr2 \
 sim:/microprocessor/R0 \
 sim:/microprocessor/R1 \
 sim:/microprocessor/R2 \
@@ -17,8 +29,19 @@ sim:/microprocessor/R4 \
 sim:/microprocessor/R5 \
 sim:/microprocessor/R6 \
 sim:/microprocessor/R7 \
+sim:/microprocessor/Sign_Extend_Enable \
+sim:/microprocessor/Imm_EA \
+sim:/microprocessor/IMM_EA_out \
+sim:/microprocessor/Scrs_A \
+sim:/microprocessor/Scrs_B \
 sim:/microprocessor/ALU_Result \
-sim:/microprocessor/Flags_out_CCR 
+sim:/microprocessor/Flags_out_CCR \
+sim:/microprocessor/CF_ALU_OUT \
+sim:/microprocessor/NF_ALU_OUT \
+sim:/microprocessor/ZF_ALU_OUT \
+sim:/microprocessor/CF_MUX_OUT \
+sim:/microprocessor/SEL_MUX_A \
+sim:/microprocessor/SEL_MUX_B 
 force -freeze sim:/microprocessor/rst 1 0
 force -freeze sim:/microprocessor/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/microprocessor/Interrupt 0 0

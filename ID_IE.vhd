@@ -98,7 +98,7 @@ Architecture arch_ID_IE Of ID_IE Is
 		                        
              erst         <= '1' when (FlushEn = '1' or rst ='1') else
                              '0';                     
-       IDIE_Reg: ID_IE_Registerr port map (erst,clk,'1',tempDatain,tempDataout);  
+       IDIE_Reg: ID_IE_Registerr port map (erst,clk,'1',tempDatain,tempDataout); 
                ALU_Enable_out          <= tempDataout(230);           
                CCR_Enable_out          <= tempDataout(229);            
                Call_out                <= tempDataout(228);            

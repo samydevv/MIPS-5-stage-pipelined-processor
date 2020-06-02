@@ -25,15 +25,13 @@ Architecture arch_CCR Of CCR Is
          begin
               if rst='1' then           
                  Flags_out <= (others=>'0');
+              elsif RTI='1' then
+                     Flags_out <= Flags_Restor;
               elsif rising_edge (clk) then 
-                  if RTI='0' then
-                     if Enable ='1' then
+                      if Enable ='1' then
                      Flags_out<= C_out & Z_out & N_out;
                      end if;
-                  else
-                      Flags_out <= Flags_Restor;
                   end if;
-              end if;  
         end process;
         
                   

@@ -56,8 +56,8 @@ Entity IE_MEM is
          PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
 		 --  IN_Port_IN             : in std_logic_vector(31 downto 0);
 	   --  IN_Port_out            : out std_logic_vector(31 downto 0);
-	       BranchMUX_IN           : in std_logic_vector(31 downto 0);
-	       BranchMUX_out          : out std_logic_vector(31 downto 0)
+	       Branch_IN              : in std_logic_vector(31 downto 0);
+	       Branch_out             : out std_logic_vector(31 downto 0)
 	       
         );
 End Entity IE_MEM;
@@ -65,6 +65,7 @@ End Entity IE_MEM;
 
 Architecture arch_IE_MEM Of IE_MEM Is
   SIGNAL tempDatain ,tempDataout   : std_logic_vector(210 downto 0);
+  SIGNAL tempDatain0               : std_logic_vector(30 downto 0):= (others =>'0');
   --------------------------------------------------------------------
    COMPONENT IE_MEM_Registerr is
         port(rst,clk,en:in std_logic;
@@ -77,7 +78,7 @@ Architecture arch_IE_MEM Of IE_MEM Is
 		           tempDatain   <= Call_in & RET_in & POP_in  & PUSH_in  & RTI_in  & Stack_operation_in  & WB_in &                
                                MEM_in  & Write_Enable_in & Interrupt_in & Swap_Enable_in & Result_ALU_in &     
 		                           Rsrc1_Value_in & Rsrc2_Value_in & Reg_WB_address_in & Rscr1_Address_in & 
-		                           PC_in & PC_Plus_2_1_in & BranchMUX_IN	;
+		                           PC_in & PC_Plus_2_1_in & Branch_IN	;
 		           
              IEMEM_Reg: IE_MEM_Registerr port map (rst,clk,'1',tempDatain,tempDataout);  
               Call_out              <= tempDataout(210);           
@@ -98,6 +99,6 @@ Architecture arch_IE_MEM Of IE_MEM Is
 				      Reg_WB_address2_out   <= tempDataout(98 downto 96);
 				      PC_out                <= tempDataout(95 downto 64);
 				      PC_Plus_2_1_out       <= tempDataout(63 downto 32);   
-					    BranchMUX_out         <= tempDataout(31 downto 0);
+					    Branch_out         <= tempDataout(31 downto 0);
 					    
 End arch_IE_MEM; 
