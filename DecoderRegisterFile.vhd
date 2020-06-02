@@ -16,5 +16,6 @@ Architecture arch_Decoder of Decoder is
             else "00010000" when en='1' and dinput="100"
             else "00100000" when en='1' and dinput="101"
             else "01000000" when en='1' and dinput="110"
-            else "10000000" when en='1' and dinput="111";
+            else "10000000" when en='1' and dinput="111"
+            else "00000000";
 End arch_Decoder ;

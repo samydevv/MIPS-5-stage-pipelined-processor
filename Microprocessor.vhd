@@ -680,6 +680,7 @@ End COMPONENT;
   SIGNAL Call_Datain    :std_logic_vector(31 downto 0);
   SIGNAL Call_Dataout   :std_logic_vector(31 downto 0);
   SIGNAL Call_D         :std_logic_vector(27 downto 0);
+  SIGNAL PC_Delayed         :std_logic_vector(31 downto 0);
   
   ----***Jumps AND Gates + OR Gates***---- 
   SIGNAL Jump_Selector : std_logic;                                                  
@@ -737,7 +738,7 @@ End COMPONENT;
   
   
   BEGIN
-        PUSH_OR_POP           <= PUSH_IEMEM or POP_IEMEM;           -- selector of the MUX 2nd stage WriteData
+        PUSH_OR_POP           <= PUSH_IEMEM or POP_IEMEM or RET_IEMEM;           -- selector of the MUX 2nd stage WriteData
         RET_OR_RTI            <= RET_IEMEM  or RTI_IEMEM;           -- selector of the MUX 2nd Stage Jump
         Reset_and_Interrupt   <= rst        &  Interrupt_out_IEMEM; -- selector of the MUX 2nd Stage Jump
         Flush                 <= RET_OR_RTI or Interrupt_out_IEMEM or Jump_Selector; 
@@ -834,12 +835,12 @@ End COMPONENT;
   Call_D      <= (others =>'0');
   Call_Datain <= Call_D & Call_IDIE & MEM_IDIE & Stack_operation_IDIE;
   Call_Data : Delay port map (clk,Call_Datain,Call_Dataout);
-  
+  PC_Delay  : Delay port map (clk,PC_OUT_IDIE,PC_Delayed);
   ----***IE_MEM***----
   IEMEM : IE_MEM port map (rst,clk,Call_Dataout(3),RET_IDIE,POP_IDIE,PUSH_IDIE,RTI_IDIE,Call_Dataout(0),WB_IDIE,Call_Dataout(2 downto 1),   --Scrs_A replaced Rsrc1_Data_IDIE/call data== Stack_operation_IDIE
                            Write_Enable_IDIE,Interrupt_out_IDIE,
                            Swap_Enable_IDIE,ALU_Result_New,Scrs_A,Rsrc2_Data_IDIE,Register_WB_Add1,
-                           Rscr1_AddressIDIE,PC_OUT_IDIE,PC_Next_IDIE,Call_IEMEM,RET_IEMEM,POP_IEMEM,PUSH_IEMEM,
+                           Rscr1_AddressIDIE,PC_OUT_IDIE,PC_Delayed,Call_IEMEM,RET_IEMEM,POP_IEMEM,PUSH_IEMEM,
                            RTI_IEMEM,Stack_operation_IEMEM,WB_IEMEM,
                            MEM_IEMEM,Write_Enable_IEMEM,Interrupt_out_IEMEM,Swap_Enable_IEMEM,            
                            ALU_Result_IEMEM,Rsrc1_Data_IEMEM,Rsrc2_Data_IEMEM,Reg_WB_Add11_IEMEM,Reg_WB_Add12_IEMEM,
@@ -852,7 +853,7 @@ End COMPONENT;
   DataAdress_MUX : Mux2_1 port map (ALU_Result_IEMEM,Address_SCU,Stack_operation_IEMEM,DataMemory_address);
 
   ----***MUX Interrupt***---- 
-  Interrupt_MUX : Mux2_1 port map (PC_Next,PC_OUT_IEMEM,Interrupt_out_IEMEM,Output_Interrupt_MUX); 
+  Interrupt_MUX : Mux2_1 port map (PC_Next_IEMEM,PC_OUT_IEMEM,Interrupt_out_IEMEM,Output_Interrupt_MUX); 
   
   ----***MUX 1st stage WriteData***----
   MUX_1st_Stage_WD : Mux2_1 port map (Rsrc1_Data_IEMEM,Output_Interrupt_MUX,Stack_operation_IEMEM,Output_1st_Stage_MUX); 

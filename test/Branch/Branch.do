@@ -65,8 +65,6 @@ run
 run
 run
 run
-force -freeze sim:/microprocessor/R6 32'h300 0
-force -freeze sim:/microprocessor/R7 32'hFFFFFFFF 0
 run
 run
 run
