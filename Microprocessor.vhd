@@ -18,7 +18,7 @@ End Entity MicroProcessor;
 Architecture arch_MicroProcessor Of MicroProcessor Is
   ----------------------------------------------------
     COMPONENT PC is 
-      port (Clk          : in std_logic; 
+      port (clk          : in std_logic; 
             StallEn      :in std_logic;
             PC_In        : in std_logic_vector(31 downto 0);
             PC_Out       : out std_logic_vector(31 downto 0)
@@ -33,7 +33,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
     End COMPONENT;
   ----------------------------------------------------
     COMPONENT PC_Plus1 is
-      port( 
+      port(
            PC: in std_logic_vector(31 downto 0);
            PcPlus1: out std_logic_vector(31 downto 0)
           );
@@ -88,6 +88,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
            Interrupt_in         : in std_logic;
            --Reset_in             : in std_logic;
                ------output of control uint---------
+           UseScrs1             : out std_logic;                      
+           UseScrs2             : out std_logic;                    
            LDD                  : out std_logic; 
            ALU_Enable           : out std_logic; 
            CCR_Enable           : out std_logic;
@@ -305,8 +307,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
            PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
           -- IN_Port_IN             : in std_logic_vector(31 downto 0);
      	   --  IN_Port_out            : out std_logic_vector(31 downto 0);
-     	     BranchMUX_IN           : in std_logic_vector(31 downto 0);
-	         BranchMUX_out          : out std_logic_vector(31 downto 0)
+	        Branch_IN              : in std_logic;
+	       Branch_out             : out std_logic
           );
      End COMPONENT;
  ----------------------------------------------------                  
@@ -404,7 +406,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
     COMPONENT HDU IS
 	     PORT (	IdExMemRead: IN std_logic;
 		          IdExRdst1,IfIdRsrc1,IfIdRsrc2: IN std_logic_vector(2 DOWNTO 0);
-			        Stall: OUT std_logic
+			        Stall: OUT std_logic;
+			        UseScrs1,UseScrs2: in std_logic
 			      );
        END COMPONENT;
  ----------------------------------------------------  
@@ -460,10 +463,17 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
          Input_Enable_out         : out std_logic;                     
          Swap_Enable_out          : out std_logic; 
          LDD_Enable_in           : in std_logic;   
-         LDD_Enable_out           : out std_logic;                     
+         LDD_Enable_out           : out std_logic;                   
          Selector                 :in  std_logic
          );
   End COMPONENT;
+  -----------------------------------
+  COMPONENT Delay is
+  port(clk       :in std_logic;
+       datain    :in std_logic_vector(31 downto 0);
+       dataout   :out std_logic_vector(31 downto 0)
+       );
+End COMPONENT;
  --**********************************************************************************************************************  
                               -----------------------SIGNALS----------------------
  --**********************************************************************************************************************
@@ -471,6 +481,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
  ----***Program Counter***----
  SIGNAL PC_IN    :std_logic_vector(31 downto 0);  
  SIGNAL PC_OUT   :std_logic_vector(31 downto 0);
+ SIGNAL PC_OUT2  :std_logic_vector(31 downto 0);
  
 
  ----***Instruction Memory***----
@@ -497,6 +508,8 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
  SIGNAL IN_Port_IFID   : std_logic_vector(31 downto 0);
  
   ----***Control unit***----
+  SIGNAL   UseScrs1             :  std_logic;                      
+  SIGNAL   UseScrs2             :  std_logic;
   SIGNAL   LDD_Enable           :  std_logic;  
   SIGNAL   ALU_Enable           :  std_logic;  
   SIGNAL   CCR_Enable           :  std_logic;       
@@ -526,7 +539,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   ----***Hazard Uint***----
   SIGNAL Stall :std_logic;
  
- ----***MUX Stall***----
+ ----***MUX Stall***---- 
   SIGNAL   LDD_Enable_Stall           :  std_logic;  
   SIGNAL   ALU_Enable_Stall           :  std_logic;  
   SIGNAL   CCR_Enable_Stall           :  std_logic;       
@@ -653,7 +666,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   SIGNAL   Reg_WB_Add12_IEMEM         :  std_logic_vector(2  downto 0);
   SIGNAL   PC_OUT_IEMEM,PC_Next_IEMEM :  std_logic_vector(31  downto 0);                                                  
 --SIGNAL   IN_Port_IEMEM              : std_logic_vector(31 downto 0);
-  SIGNAL   BranchMUX_IEMEM            : std_logic_vector(31 downto 0);
+  SIGNAL   Branch_IEMEM               : std_logic;
   
   ----***Stack Control unit***----
   SIGNAL  Address_SCU :  std_logic_vector(31  downto 0);                                                  
@@ -662,10 +675,16 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   ----***MUX Address of Data Memory***----
   SIGNAL  DataMemory_address :  std_logic_vector(31  downto 0);                                                    
 
+  ----***Delay***----
+  SIGNAL Scrs_D         :std_logic_vector(31 downto 0);
+  SIGNAL Call_Datain    :std_logic_vector(31 downto 0);
+  SIGNAL Call_Dataout   :std_logic_vector(31 downto 0);
+  SIGNAL Call_D         :std_logic_vector(27 downto 0);
+  SIGNAL PC_Delayed         :std_logic_vector(31 downto 0);
   
   ----***Jumps AND Gates + OR Gates***---- 
   SIGNAL Jump_Selector : std_logic;                                                  
-
+  SIGNAL Flush         : std_logic;
 
   ----***MUX Interrupt***---- 
   SIGNAL  Output_Interrupt_MUX :  std_logic_vector(31  downto 0);                                                    
@@ -715,13 +734,14 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   ----***MUX-B***----
  SIGNAL Scrs_B    :std_logic_vector(31 downto 0);    
 
+
   
   
   BEGIN
-        PUSH_OR_POP           <= PUSH_IEMEM or POP_IEMEM;           -- selector of the MUX 2nd stage WriteData
+        PUSH_OR_POP           <= PUSH_IEMEM or POP_IEMEM or RET_IEMEM;           -- selector of the MUX 2nd stage WriteData
         RET_OR_RTI            <= RET_IEMEM  or RTI_IEMEM;           -- selector of the MUX 2nd Stage Jump
         Reset_and_Interrupt   <= rst        &  Interrupt_out_IEMEM; -- selector of the MUX 2nd Stage Jump
-  
+        Flush                 <= RET_OR_RTI or Interrupt_out_IEMEM or Branch_IEMEM; 
   --**********************************************************************************************************************  
                               -----------------------Instantiation----------------------
   --**********************************************************************************************************************
@@ -732,6 +752,9 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
  ----***Instruction Memory***----
  Instruction_Memory     :InstructionMemory port map(PC_OUT,Instruction);  
  
+  ----***MUX for input adders***---- 
+ --Input_Adders    : Mux2_1 port map (PC_OUT,PC_IN,RTI_IEMEM,PC_OUT2);
+ 
  ----***2 Adders for PC***----
  Add_1_to_PC     : PC_Plus1 port map (PC_OUT,PC_Plus_1);
  Add_2_to_PC     : PC_Plus2 port map (PC_OUT,PC_Plus_2);
@@ -740,13 +763,13 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
  Next_PC        : Mux2_1 port map (PC_Plus_1,PC_Plus_2,Instruction(0),PC_Next);
  
  ----***IF_ID***----
- IFID                  : IF_ID port map (rst,clk,Jump_Selector,Stall,Instruction,PC_OUT,PC_Next,OP_Code,Function_Code,Rscr1_Address,Rscr2_Address,Rdst_Address,Imm_EA,PC_OUT_IFID,PC_Next_IFID,INPort,IN_Port_IFID);
+ IFID                  : IF_ID port map (rst,clk,Flush,Stall,Instruction,PC_OUT,PC_Next,OP_Code,Function_Code,Rscr1_Address,Rscr2_Address,Rdst_Address,Imm_EA,PC_OUT_IFID,PC_Next_IFID,INPort,IN_Port_IFID);
  
   ----***Control unit***----
-  Control_unit : Control port map (OP_Code,Function_Code,Interrupt,LDD_Enable,ALU_Enable,CCR_Enable,Output_Enable,Call,RET,POP,PUSH,RTI,Stack_operation,JMP,JMP_ZF,JMP_CF,JMP_NF,Reg_Dst_selector,WB,MEM,EX,Selector_set_carry,Write_Enable,Regsrc2_Control,Sign_Extend_Enable,Interrupt_out,Input_Enable,Swap_Enable);
+  Control_unit : Control port map (OP_Code,Function_Code,Interrupt,UseScrs1,UseScrs2,LDD_Enable,ALU_Enable,CCR_Enable,Output_Enable,Call,RET,POP,PUSH,RTI,Stack_operation,JMP,JMP_ZF,JMP_CF,JMP_NF,Reg_Dst_selector,WB,MEM,EX,Selector_set_carry,Write_Enable,Regsrc2_Control,Sign_Extend_Enable,Interrupt_out,Input_Enable,Swap_Enable);
   
   ----***Hazard Uint***----
-  Hazard_Uint : HDU port map (MEM_IDIE(1),Rscr1_AddressIDIE,Rscr1_Address,Scr2_Address,Stall);
+  Hazard_Uint : HDU port map (MEM_IDIE(1),Register_WB_Add1,Rscr1_Address,Scr2_Address,Stall,UseScrs1,UseScrs2);
   
   ----***MUX Stall***----
   MUX_Stall: MuxStall port map (ALU_Enable,CCR_Enable,Output_Enable,Call,RET,POP,PUSH,RTI,Stack_operation,JMP,JMP_ZF,JMP_CF,JMP_NF,Reg_Dst_selector,WB,MEM,EX,Selector_set_carry,Write_Enable,Regsrc2_Control,Sign_Extend_Enable,Interrupt_out,Input_Enable,Swap_Enable,
@@ -766,7 +789,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   OutputRegister : Output_Register port map (rst,clk,OutputPortEnable_IDIE,Scrs_A,OUTPort);
   
   ----***ID_IE***----
-  IDIE : ID_IE port map (rst,clk,Jump_Selector,ALU_Enable_Stall,CCR_Enable_Stall,Call_Stall,RET_Stall,POP_Stall,PUSH_Stall,RTI_Stall,Stack_operation_Stall,JMP_Stall,JMP_ZF_Stall,JMP_CF_Stall,JMP_NF_Stall,Reg_Dst_selector_Stall,WB_Stall,MEM_Stall,EX_Stall,Selector_set_carry_Stall,Write_Enable_Stall,Regsrc2_Control_Stall,Interrupt_out_Stall,Swap_Enable_Stall,
+  IDIE : ID_IE port map (rst,clk,Flush,ALU_Enable_Stall,CCR_Enable_Stall,Call_Stall,RET_Stall,POP_Stall,PUSH_Stall,RTI_Stall,Stack_operation_Stall,JMP_Stall,JMP_ZF_Stall,JMP_CF_Stall,JMP_NF_Stall,Reg_Dst_selector_Stall,WB_Stall,MEM_Stall,EX_Stall,Selector_set_carry_Stall,Write_Enable_Stall,Regsrc2_Control_Stall,Interrupt_out_Stall,Swap_Enable_Stall,
                          PC_OUT_IFID,PC_Next_IFID,Rscr1_Address,Scr2_Address,Rdst_Address,IMM_EA_out,Rsrc1_Data,Rsrc2_Data,ALU_Enable_IDIE,CCR_Enable_IDIE,Call_IDIE,RET_IDIE,POP_IDIE,PUSH_IDIE,RTI_IDIE,Stack_operation_IDIE,JMP_IDIE,
                          JMP_ZF_IDIE,JMP_CF_IDIE,JMP_NF_IDIE,Reg_Dst_selector_IDIE,WB_IDIE,MEM_IDIE,EX_IDIE,Selector_set_carry_IDIE,Write_Enable_IDIE,Regsrc2_Control_IDIE,Interrupt_out_IDIE,
                          Swap_Enable_IDIE,PC_OUT_IDIE,PC_Next_IDIE,Rscr1_AddressIDIE,Rscr2_AddressIDIE,Rdst_AddressIDIE,IMM_EA_IDIE,Rsrc1_Data_IDIE,Rsrc2_Data_IDIE,IN_Port_IFID,IN_Port_IDIE,Output_Enable_Stall,OutputPortEnable_IDIE,Input_Enable_Stall,InputPortEnable_IDIE,LDD_Enable_Stall,LDD_Enable_IDIE);
@@ -793,10 +816,10 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   Carry_MUX : Mux4By2_1bits port map (CF_ALU_OUT,'1','0',Selector_set_carry_IDIE,CF_MUX_OUT);
   
   ----***Condition Code Register***----
-  Condition_Code_Register : CCR port map (rst,clk,CF_MUX_OUT,NF_ALU_OUT,ZF_ALU_OUT,Reset_CF,Reset_ZF,Reset_NF,RTI_IDIE,Flags_Restor,Flags_out_CCR,CCR_Enable_IDIE);
+  Condition_Code_Register : CCR port map (rst,clk,CF_MUX_OUT,NF_ALU_OUT,ZF_ALU_OUT,Reset_CF,Reset_ZF,Reset_NF,RTI_IEMEM,Flags_Restor,Flags_out_CCR,CCR_Enable_IDIE);
   
   ----***Preserved Condition Code Register***----    
-  Preserved_Condition_Code_Register :  Preserved_CCR port map (rst,clk,Interrupt_out_IDIE,RTI_IDIE,Flags_out_CCR,Flags_Restor);
+  Preserved_Condition_Code_Register :  Preserved_CCR port map (rst,clk,Interrupt_out_IEMEM,RTI_IEMEM,Flags_out_CCR,Flags_Restor);
   
   ----*** MUX Register Writeback Address 1***---- 
   Register_WB_Address1 : Mux2By1_3bits port map (Rdst_AddressIDIE,Rscr1_AddressIDIE,Reg_Dst_selector_IDIE,Register_WB_Add1);
@@ -804,21 +827,24 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   ----***Jumps AND Gates + OR Gates***---- 
   CF_AND  : AND_2_Gate port map (Flags_out_CCR(2),JMP_CF_IDIE,Reset_CF); 
   ZF_AND  : AND_2_Gate port map (Flags_out_CCR(1),JMP_ZF_IDIE,Reset_ZF);
-  NF_AND  : AND_2_Gate port map (Flags_out_CCR(0),JMP_ZF_IDIE,Reset_NF);
+  NF_AND  : AND_2_Gate port map (Flags_out_CCR(0),JMP_NF_IDIE,Reset_NF);
   OR_Gate : OR_5_Gate  port map (clk,Reset_CF,Reset_ZF,Reset_NF,JMP_IDIE,Call_IDIE,Jump_Selector);
   
-  ----***MUX Stage Jump***----
-  MUX_Jump_Stage : Mux2_1 port map (PC_Next,Scrs_A,Jump_Selector,Output_Stage_Jump_MUX);  --Scrs_A replaced Rsrc1_Data_IDIE
-  
+  ----***Delay***----
+  Jump_Data : Delay port map (clk,Scrs_A,Scrs_D);
+  Call_D      <= (others =>'0');
+  Call_Datain <= Call_D & Call_IDIE & MEM_IDIE & Stack_operation_IDIE;
+  Call_Data : Delay port map (clk,Call_Datain,Call_Dataout);
+  PC_Delay  : Delay port map (clk,PC_OUT_IFID,PC_Delayed);
   ----***IE_MEM***----
-  IEMEM : IE_MEM port map (rst,clk,Call_IDIE,RET_IDIE,POP_IDIE,PUSH_IDIE,RTI_IDIE,Stack_operation_IDIE,WB_IDIE,MEM_IDIE,   --Scrs_A replaced Rsrc1_Data_IDIE
+  IEMEM : IE_MEM port map (rst,clk,Call_Dataout(3),RET_IDIE,POP_IDIE,PUSH_IDIE,RTI_IDIE,Call_Dataout(0),WB_IDIE,Call_Dataout(2 downto 1),   --Scrs_A replaced Rsrc1_Data_IDIE/call data== Stack_operation_IDIE
                            Write_Enable_IDIE,Interrupt_out_IDIE,
                            Swap_Enable_IDIE,ALU_Result_New,Scrs_A,Rsrc2_Data_IDIE,Register_WB_Add1,
-                           Rscr1_AddressIDIE,PC_OUT_IDIE,PC_Next_IDIE,Call_IEMEM,RET_IEMEM,POP_IEMEM,PUSH_IEMEM,
+                           Rscr1_AddressIDIE,PC_Delayed,PC_Next_IDIE,Call_IEMEM,RET_IEMEM,POP_IEMEM,PUSH_IEMEM,
                            RTI_IEMEM,Stack_operation_IEMEM,WB_IEMEM,
                            MEM_IEMEM,Write_Enable_IEMEM,Interrupt_out_IEMEM,Swap_Enable_IEMEM,            
                            ALU_Result_IEMEM,Rsrc1_Data_IEMEM,Rsrc2_Data_IEMEM,Reg_WB_Add11_IEMEM,Reg_WB_Add12_IEMEM,
-                           PC_OUT_IEMEM,PC_Next_IEMEM,Output_Stage_Jump_MUX,BranchMUX_IEMEM);
+                           PC_OUT_IEMEM,PC_Next_IEMEM,Jump_Selector,Branch_IEMEM);
 
   ----***Stack Control unit***----
   Stack_Control_unit : Stack_CU port map (rst,clk,Call_IEMEM,RET_IEMEM,POP_IEMEM,PUSH_IEMEM,RTI_IEMEM,Interrupt_out_IEMEM,SP,Address_SCU);                                                  
@@ -827,7 +853,7 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   DataAdress_MUX : Mux2_1 port map (ALU_Result_IEMEM,Address_SCU,Stack_operation_IEMEM,DataMemory_address);
 
   ----***MUX Interrupt***---- 
-  Interrupt_MUX : Mux2_1 port map (PC_Next,PC_OUT_IEMEM,Interrupt_out_IEMEM,Output_Interrupt_MUX); 
+  Interrupt_MUX : Mux2_1 port map (PC_Next_IEMEM,PC_OUT_IEMEM,Interrupt_out_IEMEM,Output_Interrupt_MUX); 
   
   ----***MUX 1st stage WriteData***----
   MUX_1st_Stage_WD : Mux2_1 port map (Rsrc1_Data_IEMEM,Output_Interrupt_MUX,Stack_operation_IEMEM,Output_1st_Stage_MUX); 
@@ -837,9 +863,12 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
 
   ----***Data Memory***----    
   Data_Memory : DataMemory port map (clk,PUSH_OR_POP,MEM_IEMEM(0),DataMemory_address,WriteData,Data_Memory_Output,M10,M32);
+  
+  ----***MUX Stage Jump***----
+  MUX_Jump_Stage : Mux2_1 port map (PC_Next,Rsrc1_Data_IEMEM,Branch_IEMEM,Output_Stage_Jump_MUX);  --Scrs_A replaced Rsrc1_Data_IDIE
     
   ----***MUX 1st Stage Jump***----
-  MUX_Jump_1st_Stage : Mux2_1 port map (BranchMUX_IEMEM,Data_Memory_Output,RET_OR_RTI,Output_1st_Stage_Jump_MUX);
+  MUX_Jump_1st_Stage : Mux2_1 port map (Output_Stage_Jump_MUX,Data_Memory_Output,RET_OR_RTI,Output_1st_Stage_Jump_MUX);
   
   ----***MUX 2nd Stage Jump***----
   MUX_Jump_2nd_Stage : Mux4By2_32bits port map (Output_1st_Stage_Jump_MUX,M32,M10,Reset_and_Interrupt,PC_IN);
@@ -851,7 +880,6 @@ Architecture arch_MicroProcessor Of MicroProcessor Is
   
   ----***MUX WriteBack Stage***----
   MUX_WriteBack_Stage : Mux2_1 port map (ALU_Result_MEMWB,DataMemory_MEMWB,WB_MEMWB(0),Reg_WB_Data1);
-
   
       
 End arch_MicroProcessor;     

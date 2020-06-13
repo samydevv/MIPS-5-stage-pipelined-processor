@@ -35,8 +35,8 @@ Architecture arch_Stack_CU Of Stack_CU Is
      			SP_address    <= temp_zeros & SP_output when rst='1' else
 							         temp_zeros & SP_output when PUSH_in='1'    else
 							         temp_zeros & std_logic_vector(to_unsigned(to_integer(unsigned(SP_output))+0,11)) when  POP_in='1'  else
-							         temp_zeros & SP_output when Call_in='1'    else
-			                 temp_zeros & std_logic_vector(to_unsigned(to_integer(unsigned(SP_output))+0,11)) when  RET_in='1' else
+							         temp_zeros & std_logic_vector(to_unsigned(to_integer(unsigned(SP_output))+0,11)) when Call_in='1'    else
+			                 temp_zeros & std_logic_vector(to_unsigned(to_integer(unsigned(SP_output))+2,11)) when  RET_in='1' else
                        temp_zeros & std_logic_vector(to_unsigned(to_integer(unsigned(SP_output))+0,11)) when  RTI_in='1'   else
                        temp_zeros & SP_output when Interrupt_in='1'  ;                       
                        

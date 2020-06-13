@@ -56,71 +56,49 @@ Entity IE_MEM is
          PC_Plus_2_1_out        : out std_logic_vector(31 downto 0);
 		 --  IN_Port_IN             : in std_logic_vector(31 downto 0);
 	   --  IN_Port_out            : out std_logic_vector(31 downto 0);
-	       BranchMUX_IN           : in std_logic_vector(31 downto 0);
-	       BranchMUX_out          : out std_logic_vector(31 downto 0)
+	       Branch_IN              : in std_logic;
+	       Branch_out             : out std_logic
 	       
         );
 End Entity IE_MEM;
 
 
 Architecture arch_IE_MEM Of IE_MEM Is
+  SIGNAL tempDatain ,tempDataout   : std_logic_vector(210 downto 0);
+  SIGNAL tempDatain0               : std_logic_vector(30 downto 0):= (others =>'0');
+  --------------------------------------------------------------------
+   COMPONENT IE_MEM_Registerr is
+        port(rst,clk,en:in std_logic;
+       datain    :in std_logic_vector(210 downto 0);
+       dataout   :out std_logic_vector(210 downto 0)
+       );
+      End COMPONENT;
+    -------------------------------------------------------------------
   BEGIN
-       process(clk,rst)
-       begin
-            if rst='1' then
-				      Call_out              <=   '0';
-		          RET_out               <=   '0';
-		          POP_out               <=   '0';
-		          PUSH_out              <=   '0';         
-		          RTI_out               <=   '0';         
-		          Stack_operation_out   <=   '0';     
-		  --      JMP_out               <=   '0';         
-		  --      JMP_ZF_out            <=   '0';         
-		  --      JMP_CF_out            <=   '0';        
-		  --      JMP_NF_out            <=   '0';         
-		          WB_out                <=   (others =>'0');         
-		          MEM_out               <=   (others =>'0');         
-		          Write_Enable_out      <=   '0';        
-		          Interrupt_out         <=   '0';         
-		          Swap_Enable_out       <=   '0';
-			--      Flags_out			         	<=   (others =>'0');
-				      Result_ALU_out        <=   (others =>'0');
-				      Rsrc1_Value_out       <=   (others =>'0');
-				      Rsrc2_Value_out       <=   (others =>'0');
-				      Reg_WB_address1_out   <=   (others =>'0');
-				      Reg_WB_address2_out   <=   (others =>'0');
-				      PC_out                <=   (others =>'0');
-				      PC_Plus_2_1_out       <=   (others =>'0');
-			--		    IN_Port_out           <= (others =>'0');
-				      BranchMUX_out         <= (others =>'0');
-		          
-            elsif falling_edge (clk) then    
-              Call_out              <=   Call_in;                
-		          RET_out               <=   RET_in;               
-		          POP_out               <=   POP_in;                 
-		          PUSH_out              <=   PUSH_in;                
-		          RTI_out               <=   RTI_in;                 
-		          Stack_operation_out   <=   Stack_operation_in;     
-		 --       JMP_out               <=   JMP_in;                 
-		 --       JMP_ZF_out            <=   JMP_ZF_in;              
-		 --       JMP_CF_out            <=   JMP_CF_in;             
-		 --       JMP_NF_out            <=   JMP_NF_in;              
-		          WB_out                <=   WB_in;                  
-		          MEM_out               <=   MEM_in;                 
-		          Write_Enable_out      <=   Write_Enable_in;        
-		          Interrupt_out         <=   Interrupt_in;           
-		          Swap_Enable_out       <=   Swap_Enable_in;
-	  	--       Flags_out		         		<=   Flags_in;			
-				      Result_ALU_out        <=   Result_ALU_in;
-				      Rsrc1_Value_out       <=   Rsrc1_Value_in;   
-				      Rsrc2_Value_out       <=   Rsrc2_Value_in;   
-				      Reg_WB_address1_out   <=   Reg_WB_address_in;
-				      Reg_WB_address2_out   <=   Rscr1_Address_in; 
-				      PC_out                <=   PC_in;            
-				      PC_Plus_2_1_out       <=   PC_Plus_2_1_in;   
-		--		      IN_Port_out           <= IN_Port_IN;
-					    BranchMUX_out         <= BranchMUX_IN;
-            end if;
-          end process;
-
+		           tempDatain   <= Call_in & RET_in & POP_in  & PUSH_in  & RTI_in  & Stack_operation_in  & WB_in &                
+                               MEM_in  & Write_Enable_in & Interrupt_in & Swap_Enable_in & Result_ALU_in &     
+		                           Rsrc1_Value_in & Rsrc2_Value_in & Reg_WB_address_in & Rscr1_Address_in & 
+		                           PC_in & PC_Plus_2_1_in & tempDatain0 & Branch_IN	;
+		           
+             IEMEM_Reg: IE_MEM_Registerr port map (rst,clk,'1',tempDatain,tempDataout);  
+              Call_out              <= tempDataout(210);           
+		          RET_out               <= tempDataout(209);         
+		          POP_out               <= tempDataout(208);
+		          PUSH_out              <= tempDataout(207);           
+		          RTI_out               <= tempDataout(206);           
+		          Stack_operation_out   <= tempDataout(205);
+		          WB_out                <= tempDataout(204 downto 203); 
+		          MEM_out               <= tempDataout(202 downto 201);
+		          Write_Enable_out      <= tempDataout(200);        
+		          Interrupt_out         <= tempDataout(199);
+		          Swap_Enable_out       <= tempDataout(198);
+				      Result_ALU_out        <= tempDataout(197 downto 166);
+				      Rsrc1_Value_out       <= tempDataout(165 downto 134);
+				      Rsrc2_Value_out       <= tempDataout(133 downto 102);
+				      Reg_WB_address1_out   <= tempDataout(101 downto 99);
+				      Reg_WB_address2_out   <= tempDataout(98 downto 96);
+				      PC_out                <= tempDataout(95 downto 64);
+				      PC_Plus_2_1_out       <= tempDataout(63 downto 32);   
+					    Branch_out            <= tempDataout(0);
+					    
 End arch_IE_MEM; 
