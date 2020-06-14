@@ -52,7 +52,7 @@ Rdst  ; result register
 EA    ; Effective address (20 bit)
 Imm   ; Immediate Value (16 bit)
 ```
-### Take Care that Some instructions will Occupy more than one memory location
+### Some instructions will Occupy more than one memory location
 
 ![1](https://user-images.githubusercontent.com/44317150/84581966-3dd9f900-ade6-11ea-8e57-753ee808d2d6.PNG)
 
