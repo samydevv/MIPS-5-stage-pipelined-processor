@@ -77,3 +77,5 @@ Imm   ; Immediate Value (16 bit)
 # Schematic Diagram For The Processor
 ![Architecture_Project_Diagram](https://user-images.githubusercontent.com/44317150/84582099-e177d900-ade7-11ea-8de6-c92bd6cb8206.jpg)
 
+# Assembler For The Processor
+[Assembler](https://github.com/SamyBahaa/Assembler.git)  that translate from assembly to machine code corresponding to my op-code distribution 
